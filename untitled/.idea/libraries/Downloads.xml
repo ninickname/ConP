@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Downloads">
+    <CLASSES>
+      <root url="file://D:/Dropbox/Downloads" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://D:/Dropbox/Downloads" />
+    </SOURCES>
+    <jarDirectory url="file://D:/Dropbox/Downloads" recursive="false" />
+    <jarDirectory url="file://D:/Dropbox/Downloads" recursive="false" type="SOURCES" />
+  </library>
+</component>
