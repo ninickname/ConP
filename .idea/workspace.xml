@@ -2,10 +2,76 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa21160e-5377-4d71-9791-82440f009fa5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/mail.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/_Web_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/דוגמה.iml" afterPath="$PROJECT_DIR$/.idea/דוגמה.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/untitled.iml" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\artifacts\_Web_exploded.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\copyright\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\libraries\Java_EE_6_Java_EE_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\libraries\javax_servlet_3_0_sources.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\libraries\mail.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\.idea\דוגמה.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\lib\mail.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\artifacts\untitled_ear_exploded.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\artifacts\untitled_war_exploded.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\copyright\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\libraries\Downloads.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\libraries\Java_EE_6_Java_EE_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\libraries\Jersey_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\uiDesigner.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\META-INF\application.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\lib\javax.annotation.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\lib\javax.ejb.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\lib\javax.jms.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\lib\javax.persistence.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\lib\javax.resource.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\lib\javax.servlet.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\lib\javax.servlet.jsp.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\lib\javax.servlet.jsp.jstl.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\lib\javax.transaction.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\src\demo\DemoServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\src\demo\rape.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\untitled.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\classes\demo\DemoServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\classes\demo\rape.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\about.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\bootstrapping.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\client\register.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\company\register.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\footer.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\guide.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\header.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\home.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\login.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\management\register.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\pages\template.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\WEB-INF\web.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\css\style.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\fonts\glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\js\bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AP\IdeaProjects\ConP\untitled\web\js\jquery-1.11.2.min.js" afterPath="" />
     </list>
     <ignored path="דוגמה.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,40 +95,7 @@
     <favorites_list name="דוגמה" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/untitled/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="510">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DemoServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/untitled/src/demo/DemoServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rape.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/untitled/src/demo/rape.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2520593" vertical-offset="0" max-vertical-offset="782">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,10 +118,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="1912" />
+    <option name="y" value="22" />
+    <option name="width" value="1696" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -131,7 +164,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -155,76 +187,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="דוגמה" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="untitled" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="דוגמה" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="untitled" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="דוגמה" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="untitled" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="דוגמה" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -236,7 +201,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/Dropbox/Downloads/javax.servlet-3.0-sources.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="recentsLimit" value="5" />
     <property name="js.buildTools.gulp.node_interpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
@@ -250,6 +215,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AP\IdeaProjects\ConP" />
       <recent name="C:\Users\User\IdeaProjects\ConP\lib" />
     </key>
   </component>
@@ -809,6 +775,7 @@
       <updated>1426497082604</updated>
       <workItem from="1426497083453" duration="27000" />
       <workItem from="1430054987345" duration="4244000" />
+      <workItem from="1430497348967" duration="116000" />
     </task>
     <task id="LOCAL-00001" summary="Nick INIT">
       <created>1430058242518</created>
@@ -820,42 +787,42 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4271000" />
+    <option name="totallyTimeSpent" value="4387000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="22" width="1696" height="1066" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32657418" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32657418" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21367522" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10866911" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -917,34 +884,6 @@
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/untitled/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="510">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/untitled/src/demo/DemoServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/untitled/src/demo/rape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2520593" vertical-offset="0" max-vertical-offset="782">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
