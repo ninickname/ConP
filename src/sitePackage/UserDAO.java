@@ -5,10 +5,8 @@ import java.util.Date;
 
 public class UserDAO
 {
-    static Connection currentCon = null;
+    static Connection connection = null;
     static ResultSet rs = null;
-
-
 
     public static User login(User bean) {
 
@@ -33,8 +31,8 @@ public class UserDAO
         try
         {
             //connect to DB
-            currentCon = ConnectionManager.getConnection();
-            stmt=currentCon.createStatement();
+            connection = ConnectionManager.getConnection();
+            stmt=connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
 
@@ -81,17 +79,59 @@ public class UserDAO
                 stmt = null;
             }
 
-            if (currentCon != null) {
+            if (connection != null) {
                 try {
-                    currentCon.close();
+                    connection.close();
                 } catch (Exception e) {
                 }
 
-                currentCon = null;
+                connection = null;
             }
         }
 
         return bean;
+
+    }
+
+    public static boolean register(User user) {
+
+        String first_name = user.getFirstName();
+        String last_name = user.getLastName();
+        String username = user.getUsername();
+        String password = user.getPassword();
+
+        //preparing some objects for connection
+        Statement stmt = null;
+        PreparedStatement psmtp = null;
+
+        // Check for same username
+        String sqlQuery ="select * from users where user_name='"+ username+ "'";
+
+            //connect to DB
+            connection = ConnectionManager.getConnection();
+        try {
+            stmt = connection.createStatement();
+
+        rs = stmt.executeQuery(sqlQuery);
+            boolean more = rs.next();
+
+            // if user does not exist set the isValid variable to true
+            if (!more)
+            {
+                sqlQuery = "INSERT INTO users (first_name,last_name,user_name,password) VALUES (?, ?, ?, ?)";
+                psmtp = connection.prepareStatement(sqlQuery);
+                psmtp.setString(1, user.getFirstName());
+                psmtp.setString(2, user.getLastName());
+                psmtp.setString(3, user.getUsername());
+                psmtp.setString(4, user.getPassword());
+                psmtp.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return true;
 
     }
 }

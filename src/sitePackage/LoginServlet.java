@@ -57,8 +57,5 @@ public class LoginServlet extends HttpServlet {
         {
             System.out.println(theException);
         }
-
-        PrintWriter writer = response.getWriter();
-        writer.println("This is sparta!");
     }
 }
