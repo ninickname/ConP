@@ -195,6 +195,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
     <property name="dynamic.classpath" value="false" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AP\IdeaProjects\ConP" />
+    </key>
+  </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat Local Server">
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -534,12 +539,12 @@
       <created>1430559386867</created>
       <option name="number" value="Default" />
       <updated>1430559386867</updated>
-      <workItem from="1430559389648" duration="5292000" />
+      <workItem from="1430559389648" duration="5990000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5292000" />
+    <option name="totallyTimeSpent" value="5990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
