@@ -51,7 +51,7 @@ public class UserDAO
                 bean.setSalt(rs.getString("salt"));
                 String hashed = BCrypt.hashpw(bean.getPassword(), bean.getSalt());
                 // salt from the database and the password from the input ;
-
+                ;
 
                 if (hashed.contentEquals( rs.getString("password") ) ){
                     bean.setFirstName(rs.getString("first_name"));
