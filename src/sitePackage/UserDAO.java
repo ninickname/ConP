@@ -1,7 +1,9 @@
 package sitePackage;
 
+
 import java.sql.*;
 import java.util.Date;
+
 
 public class UserDAO
 {
@@ -19,14 +21,14 @@ public class UserDAO
         String searchQuery =
                 "select * from users where user_name='"
                         + username
-                        + "' AND password='"
-                        + password
+                        //+ "' AND password='"
+                        //+ password
                         + "'";
 
         // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Your user name is " + username);
-        System.out.println("Your password is " + password);
-        System.out.println("Query: "+searchQuery);
+        //System.out.println("Your user name is " + username);
+        //System.out.println("Your password is " + password);
+        //System.out.println("Query: "+searchQuery);
 
         try
         {
@@ -46,14 +48,22 @@ public class UserDAO
             //if user exists set the isValid variable to true
             else if (more)
             {
-                String firstName = rs.getString("first_name");
-                String lastName = rs.getString("last_name");
-                Date created = rs.getDate("created");
+                bean.setSalt(rs.getString("salt"));
+                String hashed = BCrypt.hashpw(bean.getPassword(), bean.getSalt());
+                // salt from the database and the password from the input ;
 
-                System.out.println("Welcome " + firstName);
-                bean.setFirstName(firstName);
-                bean.setLastName(lastName);
+
+                if (hashed.contentEquals( rs.getString("password") ) ){
+                    bean.setFirstName(rs.getString("first_name"));
+                    bean.setLastName(rs.getString("last_name") );
+
+                    System.out.println("Welcome " + bean.getFirstName());
+
                 bean.setValid(true);
+                }
+                else {
+                    bean.setValid(false);
+                }
             }
         }
 
@@ -95,17 +105,33 @@ public class UserDAO
 
     public static boolean register(User user) {
 
-        String first_name = user.getFirstName();
-        String last_name = user.getLastName();
-        String username = user.getUsername();
-        String password = user.getPassword();
+
+        /*
+    // Hash a password for the first time
+    String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+
+    // gensalt's log_rounds parameter determines the complexity
+// the work factor is 2**log_rounds, and the default is 10
+        String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
+
+// Check that an unencrypted password matches one that has
+// previously been hashed
+        if (BCrypt.checkpw(candidate, hashed))
+            System.out.println("It matches");
+        else
+            System.out.println("It does not match");
+*/
+        String salt = BCrypt.gensalt();
+        String hashed = BCrypt.hashpw(user.getPassword(), salt);
+        user.setPassword(hashed);
+        user.setSalt(salt);
 
         //preparing some objects for connection
         Statement stmt = null;
         PreparedStatement psmtp = null;
 
         // Check for same username
-        String sqlQuery ="select * from users where user_name='"+ username+ "'";
+        String sqlQuery ="select * from users where user_name='"+ user.getUsername()+ "'";
 
             //connect to DB
             connection = ConnectionManager.getConnection();
@@ -118,14 +144,18 @@ public class UserDAO
             // if user does not exist set the isValid variable to true
             if (!more)
             {
-                sqlQuery = "INSERT INTO users (first_name,last_name,user_name,password) VALUES (?, ?, ?, ?)";
+                System.out.println("before querry");
+                sqlQuery = "INSERT INTO users (first_name,last_name,user_name,password,salt,email) VALUES (?, ?, ?, ?,?,?)";
                 psmtp = connection.prepareStatement(sqlQuery);
                 psmtp.setString(1, user.getFirstName());
                 psmtp.setString(2, user.getLastName());
                 psmtp.setString(3, user.getUsername());
-                psmtp.setString(4, user.getPassword());
+                psmtp.setString(4, user.getPassword());// currently the old password
+                psmtp.setString(5, user.getSalt().toString());
+                psmtp.setString(6, user.getEmail());
                 psmtp.executeUpdate();
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -134,4 +164,5 @@ public class UserDAO
         return true;
 
     }
+
 }
