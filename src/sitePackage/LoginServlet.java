@@ -1,5 +1,6 @@
 package sitePackage;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,8 +48,16 @@ public class LoginServlet extends HttpServlet {
                 }
             }
 
-            else
-                response.sendRedirect("index.jsp?content=login"); //error page
+            else {
+               // response.sendRedirect("index.jsp?content=login&errorMessage=popop"); //error page
+                HttpSession session = request.getSession(true);
+                session.invalidate();
+                request.setAttribute("errorMessage", "Invalid user name or password");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?content=login");
+                rd.forward(request, response);
+
+
+            }
         }
 
 
