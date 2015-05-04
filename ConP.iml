@@ -21,7 +21,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.59" level="application_server_libraries" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.35-bin" level="project" />
+    <orderEntry type="library" name="mail" level="project" />
+    <orderEntry type="library" name="javax.servlet-3.0-sources" level="project" />
+    <orderEntry type="library" name="jbcrypt-0.3" level="project" />
   </component>
 </module>
