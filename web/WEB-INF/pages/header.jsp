@@ -5,10 +5,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/jquery-1.11.2.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/app.js"></script>
 
     <title>${param.title}</title>
 </head>
-<body>
+<body ng-app="conPApp">
 <!-- Static navbar -->
 <div class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
