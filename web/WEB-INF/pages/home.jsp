@@ -36,7 +36,6 @@
         <span class="icon-next"></span>
     </a>
 </header>
-<div class="container">
 
     <!-- Marketing Icons Section -->
     <div class="row">
@@ -112,4 +111,3 @@
         </div>
     </div>
     <!-- /.row -->
-</div>

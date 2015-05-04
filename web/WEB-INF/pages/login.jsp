@@ -1,4 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    if (session.getAttribute("value") == null){
+        response.sendRedirect("/index.jsp?content=home");
+    }
+
+%>
+
 <div class="row" ng-controller="loginController">
     <div class="col-md-6">
         <legend>Login Form:</legend>

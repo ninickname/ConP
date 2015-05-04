@@ -17,7 +17,6 @@ public class LoginServlet extends HttpServlet {
 
         try
         {
-
             User user = new User();
             user.setUserName(request.getParameter("name"));
             user.setPassword(request.getParameter("password"));

@@ -2,8 +2,6 @@ package sitePackage;
 
 
 import java.sql.*;
-import java.util.Date;
-
 
 public class UserDAO
 {
@@ -19,16 +17,7 @@ public class UserDAO
         String password = bean.getPassword();
 
         String searchQuery =
-                "select * from users where user_name='"
-                        + username
-                        //+ "' AND password='"
-                        //+ password
-                        + "'";
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        //System.out.println("Your user name is " + username);
-        //System.out.println("Your password is " + password);
-        //System.out.println("Query: "+searchQuery);
+                "select * from users where user_name='" + username + "'";
 
         try
         {
@@ -105,22 +94,6 @@ public class UserDAO
 
     public static boolean register(User user) {
 
-
-        /*
-    // Hash a password for the first time
-    String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-
-    // gensalt's log_rounds parameter determines the complexity
-// the work factor is 2**log_rounds, and the default is 10
-        String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
-
-// Check that an unencrypted password matches one that has
-// previously been hashed
-        if (BCrypt.checkpw(candidate, hashed))
-            System.out.println("It matches");
-        else
-            System.out.println("It does not match");
-*/
         String salt = BCrypt.gensalt();
         String hashed = BCrypt.hashpw(user.getPassword(), salt);
         user.setPassword(hashed);
@@ -154,6 +127,7 @@ public class UserDAO
                 psmtp.setString(5, user.getSalt().toString());
                 psmtp.setString(6, user.getEmail());
                 psmtp.executeUpdate();
+                MailClass.send( user.getEmail() );
             }
 
         } catch (SQLException e) {
