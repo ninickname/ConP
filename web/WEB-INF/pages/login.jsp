@@ -13,16 +13,16 @@
         <div class="well">
             <form method="post" action="LoginServlet" name="loginForm">
                 <div class="form-group">
-                    <label>Email address</label>
-                    <input type="text" class="form-control" name="name" ng-model="name" placeholder="Please enter email" required/>
-                    <span style="color:red" ng-show="loginForm.name.$dirty && loginForm.name.$error.required">Username is required.</span>
+                    <label>User Name</label>
+                    <input type="text" class="form-control" name="user_name" ng-model="user_name" placeholder="Please enter User Name" required/>
+                    <span style="color:red" ng-show="loginForm.user_name.$dirty && loginForm.user_name.$error.required">Username is required.</span>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="password" ng-model="password" placeholder="Please password" required>
+                    <input type="password" class="form-control" name="password" ng-model="password" placeholder="Please enter Password" required>
                     <span style="color:red" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-                          <span ng-show="loginForm.password.$error.required">Email is required.</span>
-                          <span ng-show="loginForm.password.$error.email">Invalid email address.</span>
+                          <span ng-show="loginForm.password.$error.required">password is required.</span>
+                          <span ng-show="loginForm.password.$error.email">Invalid password.</span>
                     </span>
                 </div>
                 <button type="submit" ng-disabled="loginForm.$invalid " class="btn btn-default">Submit

@@ -13,8 +13,7 @@ public class UserDAO
         //preparing some objects for connection
         Statement stmt = null;
 
-        String username = bean.getUsername();
-        String password = bean.getPassword();
+        String username = bean.getUserName();
 
         String searchQuery =
                 "select * from users where user_name='" + username + "'";
@@ -40,15 +39,18 @@ public class UserDAO
                 bean.setSalt(rs.getString("salt"));
                 String hashed = BCrypt.hashpw(bean.getPassword(), bean.getSalt());
                 // salt from the database and the password from the input ;
-                ;
+
 
                 if (hashed.contentEquals( rs.getString("password") ) ){
                     bean.setFirstName(rs.getString("first_name"));
                     bean.setLastName(rs.getString("last_name") );
+                    bean.setId(rs.getLong("id"));
+                    bean.setEmail(rs.getString("email"));
+                    bean.setRole(rs.getString("role"));
 
-                    System.out.println("Welcome " + bean.getFirstName());
+                    System.out.println("Welcome " + bean.getFirstName() + "your role is " + bean.getRole());
 
-                bean.setValid(true);
+                    bean.setValid(true);
                 }
                 else {
                     bean.setValid(false);
@@ -104,28 +106,34 @@ public class UserDAO
         PreparedStatement psmtp = null;
 
         // Check for same username
-        String sqlQuery ="select * from users where user_name='"+ user.getUsername()+ "'";
+        String sqlQuery ="select * from users where user_name='"+ user.getUserName()+ "'";
 
             //connect to DB
             connection = ConnectionManager.getConnection();
         try {
             stmt = connection.createStatement();
 
-        rs = stmt.executeQuery(sqlQuery);
+            rs = stmt.executeQuery(sqlQuery);
             boolean more = rs.next();
 
             // if user does not exist set the isValid variable to true
             if (!more)
             {
                 System.out.println("before querry");
-                sqlQuery = "INSERT INTO users (first_name,last_name,user_name,password,salt,email) VALUES (?, ?, ?, ?,?,?)";
+                sqlQuery = "INSERT INTO users (first_name,last_name,user_name,password,salt,email , id ) " +
+                                                "VALUES (?, ?, ?, ?,?,? , ?)";
+                System.out.println(sqlQuery);
+
                 psmtp = connection.prepareStatement(sqlQuery);
+
                 psmtp.setString(1, user.getFirstName());
                 psmtp.setString(2, user.getLastName());
-                psmtp.setString(3, user.getUsername());
+                psmtp.setString(3, user.getUserName());
                 psmtp.setString(4, user.getPassword());// currently the old password
-                psmtp.setString(5, user.getSalt().toString());
+                psmtp.setString(5, user.getSalt());
                 psmtp.setString(6, user.getEmail());
+                psmtp.setString(7, new Long(user.getId()).toString());
+
                 psmtp.executeUpdate();
                 MailClass.send( user.getEmail() );
             }
@@ -134,9 +142,6 @@ public class UserDAO
             e.printStackTrace();
         }
 
-
         return true;
-
     }
-
 }

@@ -8,9 +8,9 @@
         <label class="form-label col-md-2" for="first_name">First name:</label>
 
         <div class="col-lg-4">
-            <input type="text" id="first_name" name="firstname" ng-model="firstname" placeholder="Enter first name"
+            <input type="text" id="first_name" name="first_name" ng-model="first_name" placeholder="Enter first name"
                    class="form-control" required>
-            <span style="color:red" ng-show="RegForm.firstname.$dirty && RegForm.firstname.$error.required">first name is required.</span>
+            <span style="color:red" ng-show="RegForm.first_name.$dirty && RegForm.first_name.$error.required">first name is required.</span>
         </div>
     </div>
     <div class="form-group">
@@ -21,6 +21,17 @@
             <input type="text" id="last_name" name="last_name" ng-model="last_name" placeholder="Enter last name"
                    class="form-control" required>
             <span style="color:red" ng-show="RegForm.last_name.$dirty && RegForm.last_name.$error.required">last name is required.</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <!-- ID -->
+        <label class="form-label col-md-2" for="id">ID</label>
+
+        <div class="col-lg-4">
+            <input type="text" id="id" name="id" ng-model="id" placeholder="Enter ID"
+                   class="form-control" required>
+            <span style="color:red" ng-show="RegForm.id.$dirty && RegForm.id.$error.required">ID is required.</span>
+            <!-- add number check-->
         </div>
     </div>
     <div class="form-group">

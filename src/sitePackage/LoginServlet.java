@@ -30,23 +30,31 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("currentUser",user);
 
                 // Check role of the user
-                int role = 1;
-                switch(role)
-                {
-                    case 0:
-                        break;
-                    case 1:
-                        response.sendRedirect("index.jsp?content=client/clientPage");
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        response.sendRedirect("index.jsp");
-                        break;
+                String role = user.getRole();
+
+                if (role.equals("User")) {
+                    response.sendRedirect("index.jsp?content=client/clientPage");
+                }
+                else if (role.equals("Employee")) {
+                    response.sendRedirect("index.jsp?content=employee/employeePage");
+                }
+                else if (role.equals("Manager")) {
+                    response.sendRedirect("index.jsp?content=notImplemented");
+
+                }
+                else if (role.equals("Admin")) {
+                    response.sendRedirect("index.jsp?content=notImplemented");
+                }
+                else if (role.equals("Unregistered")) {
+                    response.sendRedirect("index.jsp?content=notImplemented");
+
+                }
+                else {
+                    response.sendRedirect("index.jsp?content=notImplemented");
                 }
             }
+
+
 
             else {
                // response.sendRedirect("index.jsp?content=login&errorMessage=popop"); //error page
