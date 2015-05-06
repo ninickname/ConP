@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
         try
         {
             User user = new User();
-            user.setUserName(request.getParameter("name"));
+            user.setUserName(request.getParameter("user_name"));
             user.setPassword(request.getParameter("password"));
 
             user = UserDAO.login(user);
@@ -32,6 +32,8 @@ public class LoginServlet extends HttpServlet {
                 // Check role of the user
                 String role = user.getRole();
 
+                System.out.println("request = [" + request + "], response = [" + response + "]");
+                System.out.println("role is " + role );
                 if (role.equals("User")) {
                     response.sendRedirect("index.jsp?content=client/clientPage");
                 }
