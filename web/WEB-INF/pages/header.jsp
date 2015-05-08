@@ -10,7 +10,7 @@
 
     <title>${param.title}</title>
 </head>
-<body ng-app="conPApp">
+<body ng-app="conPApp" id="body_css">
 <!-- Static navbar -->
 <div class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
@@ -20,7 +20,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Project name</a>
+        <a class="navbar-brand" href="#"  id="company_name"></a>
     </div>
     <div class="navbar-collapse collapse">
 
@@ -31,6 +31,8 @@
             <li class="${( param.content == 'service') ? 'active' : param.content}"><a href="#">Service</a></li>
             <li class="${( param.content == 'about') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=about">About</a></li>
+            <li class="${( param.content == 'customization') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=customization">Customization</a></li>
         </ul>
 
         <!-- Right nav -->
