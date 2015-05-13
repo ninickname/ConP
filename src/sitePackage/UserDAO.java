@@ -135,7 +135,8 @@ public class UserDAO
                 psmtp.setString(7, new Long(user.getId()).toString());
 
                 psmtp.executeUpdate();
-                MailClass.send( user.getEmail() );
+                MailClass.send( user.getEmail() , MailClass.welcome );
+
             }
 
         } catch (SQLException e) {

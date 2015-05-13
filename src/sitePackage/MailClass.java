@@ -5,7 +5,26 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class MailClass {
-    public static void send(String to) {
+
+    public static final String toUser ="your permission was changed to User";
+    public static final String toManager =" your permission was changed to Manager";
+    public static final String toEmployee = " your permission was changed to Employee";
+    public static final String welcome = "Welcome to ConP Corp , you are now a a pending user.\n"+
+                                        "please ask your service provider to grand you the corresponding privileges.";
+
+    /*
+     * mail sending class
+     * @param to -  the email address that the mail will be sent to
+     * @param type - type of message :
+     *              welcome - "Welcome to ConP Corp , you are now a a pending user.
+                                please ask your service provider to grand you the corresponding privileges."
+                    toUser - your permission was changed to User
+                    toManager - your permission was changed to Manager
+                    toEmployee - your permission was changed to Employee
+
+                   if the message doesn't correspond to any of those basic types , the message in the type string will be sent to the mail.
+     */
+    public static void send(String to, String type ) {
 
         //Get the session object
         Properties props = new Properties();
@@ -29,7 +48,8 @@ public class MailClass {
             message.setFrom(new InternetAddress("ConPCorp@gmail.com"));//change accordingly
             message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
             message.setSubject("Hello");
-            message.setText("Testing.......");
+
+            message.setText(type);
 
             //send message
             Transport.send(message);
