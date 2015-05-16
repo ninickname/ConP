@@ -74,4 +74,25 @@
         </div>
     </div>
 </form>
+    <%
+        if(null!=request.getAttribute("errorMessage"))
+        {
+    %>
+    <div class="alert alert-danger">
+
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+
+        <strong>Warning!</strong> <%  out.println(request.getAttribute("errorMessage")); %>
+
+    </div>
+
+    <%
+        }
+    %>
+
+
+
+
+
+</div>
     </div>

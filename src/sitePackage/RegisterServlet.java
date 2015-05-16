@@ -1,5 +1,6 @@
 package sitePackage;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +27,11 @@ public class RegisterServlet extends HttpServlet {
         if (ans) {
             response.sendRedirect("index.jsp");
         } else {
-            response.sendRedirect("index.jsp");
+            HttpSession session = request.getSession(true);
+            session.invalidate();
+            request.setAttribute("errorMessage", "the user is exist!!!");
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?content=register");
+            rd.forward(request, response);
         }
     }
 }

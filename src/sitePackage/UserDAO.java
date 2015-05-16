@@ -4,7 +4,6 @@ package sitePackage;
 import java.sql.*;
 import java.util.Date;
 
-
 public class UserDAO
 {
     static Connection connection = null;
@@ -138,7 +137,7 @@ public class UserDAO
         try {
             stmt = connection.createStatement();
 
-        rs = stmt.executeQuery(sqlQuery);
+            rs = stmt.executeQuery(sqlQuery);
             boolean more = rs.next();
 
             // if user does not exist set the isValid variable to true
@@ -154,6 +153,10 @@ public class UserDAO
                 psmtp.setString(5, user.getSalt().toString());
                 psmtp.setString(6, user.getEmail());
                 psmtp.executeUpdate();
+            }
+            else
+            {
+                return false;
             }
 
         } catch (SQLException e) {
