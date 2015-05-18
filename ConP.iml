@@ -32,5 +32,6 @@
     <orderEntry type="library" name="jbcrypt-0.3" level="project" />
     <orderEntry type="library" name="json-simple-1.1.1" level="project" />
     <orderEntry type="library" name="com.tokbox:opentok-server-sdk:2.2.2" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

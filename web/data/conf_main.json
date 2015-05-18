@@ -33,9 +33,9 @@
     }
   ],
   "body_css": {
-    "background-color": "white"
+    "background-color": "blue"
   },
   "navbar_css": {
-    "background-color": "white"
+    "background-color": "blue"
   }
 }
