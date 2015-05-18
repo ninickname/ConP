@@ -3,6 +3,8 @@ package tokbox;
 
 
 import com.opentok.OpenTok;
+import com.opentok.Session;
+import com.opentok.exception.OpenTokException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,30 +20,27 @@ public class tokboxServlet extends HttpServlet {
         // inside a class or method...
         int apiKey = 45238382; // YOUR API KEY
         String apiSecret = "b94b18893ae6661e08d14729315543717472cc33";
+        String sessionId = null;
 
-        OpenTok opentok = new OpenTok(apiKey, apiSecret);
+        try {
+            OpenTok opentok = new OpenTok(apiKey, apiSecret);
 
-//        int apiKey = 45238382; // YOUR API KEY
-//        String apiSecret = "Secret: b94b18893ae6661e08d14729315543717472cc33";
-//        try {
-//            OpenTok opentok = new OpenTok(apiKey, apiSecret);
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        Session session = null;
+        try {
+            session  = opentok.createSession();
+            sessionId = session.getSessionId();
+        } catch (OpenTokException e) {
+            e.printStackTrace();
+        }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
-//        https://api.opentok.com/session/create
-//        Session session=null;
-//        try {
-//            session  = opentok.createSession();
-//        } catch (OpenTokException e) {
-//            e.printStackTrace();
-//        }
-//
-//        String sessionId = session.getSessionId();
-//        System.out.println("Got an session id "+sessionId);
-//        SessionOb sessionp = new SessionOb(null,sessionId,true);
 
-        response.sendRedirect("index.jsp?content=client/clientPage&apiKey=123&sessionId=123&token=123");
+        System.out.println("Got an session id "+sessionId);
+        //SessionOb sessionp = new SessionOb(null,sessionId,true);
+
+        response.sendRedirect("index.jsp?content=client/clientPage&apiKey=123&sessionId="+sessionId+"&token=123");
     }
 }
