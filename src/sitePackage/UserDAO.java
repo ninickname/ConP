@@ -2,6 +2,7 @@ package sitePackage;
 
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UserDAO
 {
@@ -144,5 +145,87 @@ public class UserDAO
         }
 
         return true;
+    }
+
+    public static ArrayList<Long> getIdsWithLowerRole(User bean) {
+
+        //preparing some objects for connection
+        Statement stmt = null;
+
+        String role = bean.getRole();
+        String roles = null;
+
+        if (role.equals("Employee")) {
+            roles = "User";
+        }
+        else if (role.equals("Manager")) {
+            roles= "'User' or role = 'Employee'";
+        }
+        else if (role.equals("Admin")) {
+            roles= "'User' or role = 'Employee' or role = 'Manager'";
+        }
+
+        String searchQuery =
+                "select * from users where role =" + roles ;
+
+        ArrayList<Long> ret = new ArrayList<Long>();
+
+        try
+        {
+            //connect to DB
+            connection = ConnectionManager.getConnection();
+            stmt=connection.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            boolean more = rs.next();
+
+            // if user does not exist set the isValid variable to false
+            if (!more)
+            {
+                System.out.println("Sorry, you are not a registered user! Please sign up first");
+                bean.setValid(false);
+            }
+
+            //if user exists set the isValid variable to true
+            else if (more)
+            {
+                do{
+                    more = rs.next();
+                    ret.add(rs.getLong("id"));
+                }while (more);
+            }
+        }
+
+        catch (Exception ex)
+        {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+
+        //some exception handling
+        finally
+        {
+            if (rs != null)	{
+                try {
+                    rs.close();
+                } catch (Exception e) {}
+                rs = null;
+            }
+
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {}
+                stmt = null;
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                }
+
+                connection = null;
+            }
+        }
+        return ret;
     }
 }

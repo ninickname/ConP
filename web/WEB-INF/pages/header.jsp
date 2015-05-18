@@ -29,10 +29,13 @@
             <li class="${( param.content == 'home') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
             <li class="${( param.content == 'service') ? 'active' : param.content}"><a href="#">Service</a></li>
+
             <li class="${( param.content == 'about') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=about">About</a></li>
             <li class="${( param.content == 'customization') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=customization">Customization</a></li>
+            <li class="${( param.content == 'editPage') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=editPage">edit</a></li>
         </ul>
 
         <!-- Right nav -->

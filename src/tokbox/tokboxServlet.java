@@ -1,7 +1,5 @@
 package tokbox;
 
-
-
 import com.opentok.OpenTok;
 import com.opentok.Session;
 import com.opentok.exception.OpenTokException;
