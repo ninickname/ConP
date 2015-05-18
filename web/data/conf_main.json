@@ -1,0 +1,41 @@
+{
+  "company_name": "ConP",
+  "team": [
+    {
+      "name": "Andrey Pospelov",
+      "role": "",
+      "img_link": ""
+    },
+    {
+      "name": "Nick Yashaev",
+      "role": "",
+      "img_link": ""
+    },
+    {
+      "name": "Maxim Dunavicher",
+      "role": "",
+      "img_link": ""
+    },
+    {
+      "name": "Vova Feldstein",
+      "role": "",
+      "img_link": ""
+    },
+    {
+      "name": "Yuval Hen",
+      "role": "",
+      "img_link": ""
+    },
+    {
+      "name": "Vital Yuchter",
+      "role": "",
+      "img_link": ""
+    }
+  ],
+  "body_css": {
+    "background-color": "blue"
+  },
+  "navbar_css": {
+    "background-color": "blue"
+  }
+}
