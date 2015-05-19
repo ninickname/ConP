@@ -13,11 +13,24 @@
             <%
                 //TODO TEMPORARY
                 //TODO COOKIES NEED TO BE IMPLEMENTED !!!
-                User rape = new User();
-                rape.setId(222);
-                rape.setRole("Admin");
+                String role= null;
+                for(Cookie cook :request.getCookies() ){
 
-                ArrayList<Long> UsersList = UserDAO.getIdsWithLowerRole( rape );
+                    if(cook.getName().equals("role")){
+
+                        role = UserDAO.getRoleFromCookie(cook);
+
+
+                        }
+                }
+
+                User user = new User();
+                user.setId(321321321);
+                user.setRole(role);
+                System.out.println(role);
+
+
+                ArrayList<Long> UsersList = UserDAO.getIdsWithLowerRole( user );
 
                 for(Long id : UsersList){%>
 

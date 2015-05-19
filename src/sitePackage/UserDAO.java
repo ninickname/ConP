@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class UserDAO
 {
-    static String [] roles = {"Admin","User" , "Manager" , "Employee"};
+    static String [] Roles = {"Admin","User" , "Manager" , "Employee"};
     static String salt = "$2a$10$TqhxPqaGssU/Ft9lrUssIu";
     //NOTE hardcoded salt for the cookie :D
 
@@ -160,6 +160,7 @@ public class UserDAO
         String role = bean.getRole();
         String roles = null;
 
+        System.out.println("USER DAO ROLE " + role);
         if (role.equals("Employee")) {
             roles = "'User' or role = 'Unregistered'";
         }
@@ -183,21 +184,16 @@ public class UserDAO
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
 
-            // if user does not exist set the isValid variable to false
-            if (!more)
-            {
-                System.out.println("Sorry, you are not a registered user! Please sign up first");
-                bean.setValid(false);
-            }
 
             //if user exists set the isValid variable to true
-            else if (more)
-            {
-                do{
-                    more = rs.next();
+
+                while (more){
                     ret.add(rs.getLong("id"));
-                }while (more);
-            }
+                    more = rs.next();
+
+                }
+
+
         }
 
         catch (Exception ex)
@@ -235,10 +231,11 @@ public class UserDAO
     }
 
     public static String getRoleFromCookie(Cookie cook){
-        String hashed =cook.getValue();
+        String hashed = cook.getValue();
 
-        for(String role :UserDAO.roles){
-            if( hashed.equals(BCrypt.hashpw(role, UserDAO.salt))){
+        for(String role :UserDAO.Roles){
+            String hashedRole =BCrypt.hashpw(role, UserDAO.salt);
+            if( hashed.equals(hashedRole)){
                 return role;
             }
         }
