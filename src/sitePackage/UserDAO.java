@@ -1,11 +1,16 @@
 package sitePackage;
 
 
+import javax.servlet.http.Cookie;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class UserDAO
 {
+    static String [] roles = {"Admin","User" , "Manager" , "Employee"};
+    static String salt = "$2a$10$TqhxPqaGssU/Ft9lrUssIu";
+    //NOTE hardcoded salt for the cookie :D
+
     static Connection connection = null;
     static ResultSet rs = null;
 
@@ -156,13 +161,13 @@ public class UserDAO
         String roles = null;
 
         if (role.equals("Employee")) {
-            roles = "User";
+            roles = "'User' or role = 'Unregistered'";
         }
         else if (role.equals("Manager")) {
-            roles= "'User' or role = 'Employee'";
+            roles= "'User' or role = 'Employee' or role = 'Unregistered'";
         }
         else if (role.equals("Admin")) {
-            roles= "'User' or role = 'Employee' or role = 'Manager'";
+            roles= "'User' or role = 'Employee' or role = 'Manager' or role = 'Unregistered'";
         }
 
         String searchQuery =
@@ -227,5 +232,16 @@ public class UserDAO
             }
         }
         return ret;
+    }
+
+    public static String getRoleFromCookie(Cookie cook){
+        String hashed =cook.getValue();
+
+        for(String role :UserDAO.roles){
+            if( hashed.equals(BCrypt.hashpw(role, UserDAO.salt))){
+                return role;
+            }
+        }
+        return "Unregistered";
     }
 }

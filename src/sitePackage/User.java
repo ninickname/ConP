@@ -1,5 +1,7 @@
 package sitePackage;
 
+
+
 public class User {
 
     private long id;
@@ -10,6 +12,10 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+
+
+    private String role;
+    public boolean valid;
 
     public String getRole() {
         return role;
@@ -33,13 +39,10 @@ public class User {
         this.id = id;
     }
 
-    private String role;
-    public boolean valid;
 
     public String getUserName() {
         return username;
     }
-
 
     public void setSalt(String salt) {
         this.salt = salt;
