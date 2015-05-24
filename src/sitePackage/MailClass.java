@@ -11,7 +11,7 @@ public class MailClass {
     public static final String toEmployee = " your permission was changed to Employee";
     public static final String welcome = "Welcome to ConP Corp , you are now a a pending user.\n"+
                                         "please ask your service provider to grand you the corresponding privileges.";
-
+    public static final String changed = "some of your data was edited by highter authority that you ";
     /*
      * mail sending class
      * @param to -  the email address that the mail will be sent to

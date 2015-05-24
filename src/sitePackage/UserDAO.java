@@ -298,4 +298,57 @@ public class UserDAO {
 
     }
 
+    public static boolean updateUser(User user, User oldUser, boolean samePassword) {
+
+        if (samePassword) {
+            user.setSalt(oldUser.getSalt());
+            user.setPassword(oldUser.getPassword());
+        } else {
+            String salt = BCrypt.gensalt();
+            String hashed = BCrypt.hashpw(user.getPassword(), salt);
+            user.setPassword(hashed);
+            user.setSalt(salt);
+        }
+
+
+        //preparing some objects for connection
+        Statement stmt = null;
+        PreparedStatement psmtp = null;
+
+
+        //connect to DB
+        connection = ConnectionManager.getConnection();
+        try {
+
+            System.out.println("before querry");
+            String sqlQuery = "UPDATE users  SET first_name = ? ,last_name = ? ,user_name = ? ,password = ? ,salt = ? ,email = ?  , id = ? WHERE id= ?";
+
+            System.out.println(sqlQuery);
+
+            psmtp = connection.prepareStatement(sqlQuery);
+
+            psmtp.setString(1, user.getFirstName());
+            psmtp.setString(2, user.getLastName());
+            psmtp.setString(3, user.getUserName());
+            psmtp.setString(4, user.getPassword());
+            psmtp.setString(5, user.getSalt());
+            psmtp.setString(6, user.getEmail());
+            psmtp.setString(7, new Long(user.getId()).toString());
+            psmtp.setString(8, new Long(oldUser.getId()).toString());
+
+
+            psmtp.executeUpdate();
+
+            MailClass.send(user.getEmail(), MailClass.changed);
+            if (!user.getEmail().equals(oldUser.getEmail())) {
+                MailClass.send(oldUser.getEmail(), "the user of id " + oldUser.getEmail() + " now will be sending emails to " + user.getEmail() + " and not to this mail from now on.");
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return true;
+    }
 }

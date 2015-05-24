@@ -21,17 +21,14 @@
             $scope.user_name = "<%=user.getUserName()%>";
             $scope.email = "<%=user.getEmail()%>";
             $scope.id = "<%=user.getId()%>";
-
-            $scope.password = "<%=user.getPassword()%>";
-            $scope.password_confirm = "<%=user.getPassword()%>";
-
-
         });
     </script>
+
+
     <form class="form-horizontal"
           action='EditServlet'
           method="POST"
-          name="RegForm"
+          name="editUserController"
           ng-controller="editUserController">
 
         <div class="form-group">
@@ -43,7 +40,7 @@
                        placeholder="Enter first name"
                        class="form-control" required>
                         <span style="color:red"
-                              ng-show="RegForm.first_name.$dirty && RegForm.first_name.$error.required">first name is required.</span>
+                              ng-show="editUserController.first_name.$dirty && editUserController.first_name.$error.required">first name is required.</span>
             </div>
         </div>
         <div class="form-group">
@@ -55,7 +52,7 @@
                        placeholder="Enter last name"
                        class="form-control" required>
 
-                <span style="color:red" ng-show="RegForm.last_name.$dirty && RegForm.last_name.$error.required">last name is required.</span>
+                <span style="color:red" ng-show="editUserController.last_name.$dirty && editUserController.last_name.$error.required">last name is required.</span>
             </div>
         </div>
 
@@ -65,11 +62,12 @@
             <label class="form-label col-md-2" for="id">ID</label>
 
             <div class="col-lg-4">
-                <input type="text" id="id" name="id" ng-model="id" placeholder="Enter ID"
+                <input type="text"  id="id" name="id" ng-model="id" placeholder="Enter ID"
                        class="form-control" required>
-                <span style="color:red" ng-show="RegForm.id.$dirty && RegForm.id.$error.required">ID is required.</span>
+                <span style="color:red" ng-show="editUserController.id.$dirty && editUserController.id.$error.required ">ID is required.</span>
                 <!-- add number check-->
             </div>
+
         </div>
         <div class="form-group">
             <!-- Username -->
@@ -79,7 +77,7 @@
                 <input type="text" id="user_name" name="user_name" ng-model="user_name"
                        placeholder="Enter user name"
                        class="form-control" required >
-                <span style="color:red" ng-show="RegForm.user_name.$dirty && RegForm.user_name.$error.required">user name is required.</span>
+                <span style="color:red" ng-show="editUserController.user_name.$dirty && editUserController.user_name.$error.required">user name is required.</span>
             </div>
         </div>
         <div class="form-group">
@@ -90,43 +88,28 @@
                 <input type="email" id="email" name="email" ng-model="email" placeholder="enter email"
                        class="form-control"
                        required>
-                <span style="color:red" ng-show="RegForm.email.$dirty && RegForm.email.$error.required">email is required.</span>
+                <span style="color:red" ng-show="editUserController.email.$dirty && editUserController.email.$error.required">email is required.</span>
                 <span style="color:red"
-                      ng-show="RegForm.email.$dirty && RegForm.email.$invalid">email is invalid.</span>
+                      ng-show="editUserController.email.$dirty && editUserController.email.$invalid">email is invalid.</span>
             </div>
         </div>
         <div class="form-group">
             <!-- Password-->
-            <label class="form-label col-md-2" for="password">Password</label>
+            <label class="form-label col-md-2" for="password">New Password</label>
 
             <div class="col-lg-4">
                 <input type="password" id="password" name="password" ng-model="password"
                        placeholder="enter password"
-                       class="form-control" required>
-                <span style="color:red" ng-show="RegForm.password.$dirty && RegForm.password.$error.required">password is required.</span>
-            </div>
-        </div>
-        <div class="form-group">
-            <!-- Password -->
-            <label class="form-label col-md-2" for="password_confirm">Password (Confirm)</label>
-
-            <div class="col-lg-4">
-                <input type="password" id="password_confirm" name="password_confirm" ng-model="password_confirm"
-                       placeholder="reenter the password "
-                       class="form-control" required>
-                        <span style="color:red"
-                              ng-show="RegForm.password_confirm.$dirty && RegForm.password_confirm.$error.required">password is required.</span>
+                       class="form-control" >
+                <span style="color:red" ng-show="editUserController.password.">fill in in case you want to update the password.</span>
             </div>
         </div>
         <div class="form-group">
             <!-- Button -->
-            <div class="controls">
-                <button class="btn btn-success" ng-disabled="RegForm.$invalid && password == password_confirm ">
-                    Register
+            <div class="controls col-md-offset-2">
+                <button class="btn btn-success" ><!-- ng-disabled="editUserController.$invalid "     -->
+                    Update
                 </button>
-                <span style="color:red"
-                      ng-show="password != password_confirm ">password and confirm are not the same!.</span>
-
             </div>
         </div>
     </form>
