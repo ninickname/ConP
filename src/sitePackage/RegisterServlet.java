@@ -12,7 +12,6 @@ public class RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         User user = new User();
         user.setFirstName(request.getParameter("first_name"));
         user.setLastName(request.getParameter("last_name"));

@@ -34,8 +34,8 @@
                     href="${pageContext.request.contextPath}/index.jsp?content=about">About</a></li>
             <li class="${( param.content == 'customization') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=customization">Customization</a></li>
-            <li class="${( param.content == 'editPage') ? 'active' : param.content}"><a
-                    href="${pageContext.request.contextPath}/index.jsp?content=editPage">edit</a></li>
+            <li class="${( param.content == 'midEdit') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=midEdit">edit</a></li>
         </ul>
 
         <!-- Right nav -->

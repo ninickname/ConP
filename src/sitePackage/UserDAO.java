@@ -5,9 +5,8 @@ import javax.servlet.http.Cookie;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class UserDAO
-{
-    static String [] Roles = {"Admin","User" , "Manager" , "Employee"};
+public class UserDAO {
+    static String[] Roles = {"Admin", "User", "Manager", "Employee"};
     static String salt = "$2a$10$TqhxPqaGssU/Ft9lrUssIu";
     //NOTE hardcoded salt for the cookie :D
 
@@ -24,32 +23,29 @@ public class UserDAO
         String searchQuery =
                 "select * from users where user_name='" + username + "'";
 
-        try
-        {
+        try {
             //connect to DB
             connection = ConnectionManager.getConnection();
-            stmt=connection.createStatement();
+            stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
 
             // if user does not exist set the isValid variable to false
-            if (!more)
-            {
+            if (!more) {
                 System.out.println("Sorry, you are not a registered user! Please sign up first");
                 bean.setValid(false);
             }
 
             //if user exists set the isValid variable to true
-            else if (more)
-            {
+            else if (more) {
                 bean.setSalt(rs.getString("salt"));
                 String hashed = BCrypt.hashpw(bean.getPassword(), bean.getSalt());
                 // salt from the database and the password from the input ;
 
 
-                if (hashed.contentEquals( rs.getString("password") ) ){
+                if (hashed.contentEquals(rs.getString("password"))) {
                     bean.setFirstName(rs.getString("first_name"));
-                    bean.setLastName(rs.getString("last_name") );
+                    bean.setLastName(rs.getString("last_name"));
                     bean.setId(rs.getLong("id"));
                     bean.setEmail(rs.getString("email"));
                     bean.setRole(rs.getString("role"));
@@ -57,32 +53,29 @@ public class UserDAO
                     System.out.println("Welcome " + bean.getFirstName() + "your role is " + bean.getRole());
 
                     bean.setValid(true);
-                }
-                else {
+                } else {
                     bean.setValid(false);
                 }
             }
-        }
-
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         }
 
         //some exception handling
-        finally
-        {
-            if (rs != null)	{
+        finally {
+            if (rs != null) {
                 try {
                     rs.close();
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
                 rs = null;
             }
 
             if (stmt != null) {
                 try {
                     stmt.close();
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
                 stmt = null;
             }
 
@@ -112,10 +105,10 @@ public class UserDAO
         PreparedStatement psmtp = null;
 
         // Check for same username
-        String sqlQuery ="select * from users where user_name='"+ user.getUserName()+ "'";
+        String sqlQuery = "select * from users where user_name='" + user.getUserName() + "'";
 
-            //connect to DB
-            connection = ConnectionManager.getConnection();
+        //connect to DB
+        connection = ConnectionManager.getConnection();
         try {
             stmt = connection.createStatement();
 
@@ -123,11 +116,10 @@ public class UserDAO
             boolean more = rs.next();
 
             // if user does not exist set the isValid variable to true
-            if (!more)
-            {
+            if (!more) {
                 System.out.println("before querry");
                 sqlQuery = "INSERT INTO users (first_name,last_name,user_name,password,salt,email , id ) " +
-                                                "VALUES (?, ?, ?, ?,?,? , ?)";
+                        "VALUES (?, ?, ?, ?,?,? , ?)";
                 System.out.println(sqlQuery);
 
                 psmtp = connection.prepareStatement(sqlQuery);
@@ -141,7 +133,7 @@ public class UserDAO
                 psmtp.setString(7, new Long(user.getId()).toString());
 
                 psmtp.executeUpdate();
-                MailClass.send( user.getEmail() , MailClass.welcome );
+                MailClass.send(user.getEmail(), MailClass.welcome);
 
             }
 
@@ -163,58 +155,53 @@ public class UserDAO
         System.out.println("USER DAO ROLE " + role);
         if (role.equals("Employee")) {
             roles = "'User' or role = 'Unregistered'";
-        }
-        else if (role.equals("Manager")) {
-            roles= "'User' or role = 'Employee' or role = 'Unregistered'";
-        }
-        else if (role.equals("Admin")) {
-            roles= "'User' or role = 'Employee' or role = 'Manager' or role = 'Unregistered'";
+        } else if (role.equals("Manager")) {
+            roles = "'User' or role = 'Employee' or role = 'Unregistered'";
+        } else if (role.equals("Admin")) {
+            roles = "'User' or role = 'Employee' or role = 'Manager' or role = 'Unregistered'";
         }
 
         String searchQuery =
-                "select * from users where role =" + roles ;
+                "select * from users where role =" + roles;
 
         ArrayList<Long> ret = new ArrayList<Long>();
 
-        try
-        {
+        try {
             //connect to DB
             connection = ConnectionManager.getConnection();
-            stmt=connection.createStatement();
+            stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
 
 
             //if user exists set the isValid variable to true
 
-                while (more){
-                    ret.add(rs.getLong("id"));
-                    more = rs.next();
+            while (more) {
+                ret.add(rs.getLong("id"));
+                more = rs.next();
 
-                }
+            }
 
 
-        }
-
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         }
 
         //some exception handling
-        finally
-        {
-            if (rs != null)	{
+        finally {
+            if (rs != null) {
                 try {
                     rs.close();
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
                 rs = null;
             }
 
             if (stmt != null) {
                 try {
                     stmt.close();
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
                 stmt = null;
             }
 
@@ -230,15 +217,85 @@ public class UserDAO
         return ret;
     }
 
-    public static String getRoleFromCookie(Cookie cook){
+    public static String getRoleFromCookie(Cookie cook) {
         String hashed = cook.getValue();
 
-        for(String role :UserDAO.Roles){
-            String hashedRole =BCrypt.hashpw(role, UserDAO.salt);
-            if( hashed.equals(hashedRole)){
+        for (String role : UserDAO.Roles) {
+            String hashedRole = BCrypt.hashpw(role, UserDAO.salt);
+            if (hashed.equals(hashedRole)) {
                 return role;
             }
         }
         return "Unregistered";
     }
+
+    public static User getUserById(long id) {
+
+        //preparing some objects for connection
+        Statement stmt = null;
+
+        User bean = new User();
+        String searchQuery =
+                "select * from users where id='" + id + "'";
+
+        try {
+            //connect to DB
+            connection = ConnectionManager.getConnection();
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            boolean more = rs.next();
+
+            // if user does not exist set the isValid variable to false
+            if (!more) {
+                System.out.println("Sorry, you are not a registered user! Please sign up first");
+            }
+
+            //if user exists set the isValid variable to true
+            else if (more) {
+                bean.setFirstName(rs.getString("first_name"));
+                bean.setLastName(rs.getString("last_name"));
+                bean.setId(rs.getLong("id"));
+                bean.setEmail(rs.getString("email"));
+                bean.setRole(rs.getString("role"));
+                bean.setUserName(rs.getString("user_name"));
+                bean.setPassword(rs.getString("password"));
+
+                System.out.println("now we will edit  " + bean.getFirstName());
+            }
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+
+        //some exception handling
+        finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                }
+
+                connection = null;
+            }
+        }
+
+        return bean;
+
+    }
+
 }
