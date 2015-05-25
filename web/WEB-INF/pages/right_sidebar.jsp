@@ -1,15 +1,35 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="sitePackage.UserDAO,javax.servlet.http.Cookie" %>
+<%@ page import="static sitePackage.UserDAO.*" %>
+<%@ page import="tokbox.SessionOb" %>
+
+<%
+    String role = null;
+    Cookie cookie = null;
+    Cookie[] cookies;
+    cookies = request.getCookies();
+    if( cookies != null)
+    {
+        for (Cookie cooky : cookies) {
+            cookie = cooky;
+            String b = cookie.getName();
+            if(b.equals("role")){
+                role = getRoleFromCookie(cookie);
+                break;
+            }
+        }
+    }
+
+%>
+<%
+
+    if(role != null && role.equals("Admin"))
+    {%>
+
 <div class="well">
-    <legend>News and sales</legend>
+    <legend>System data</legend>
     <ul class="list-group">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-        <li class="list-group-item">
-            <span class="badge">14</span>
-            waiting users
-        </li>
+        <li class="list-group-item"><span class="badge"><%= SessionOb.getAllRunningSessions().size()%></span>running calls: </li>
+        <li class="list-group-item"><span class="badge"><%= UserDAO.getUnregisteredClientsList().size()%></span>waiting for approval: </li>
     </ul>
     <hr>
     <ul class="list-group">
@@ -20,3 +40,7 @@
         <li class="list-group-item"><a href="#">Change personal data</a></li>
     </ul>
 </div>
+
+<%
+    }
+%>

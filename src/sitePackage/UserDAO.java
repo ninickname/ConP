@@ -4,6 +4,7 @@ package sitePackage;
 import javax.servlet.http.Cookie;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
     static String[] Roles = {"Admin", "User", "Manager", "Employee"};
@@ -91,6 +92,64 @@ public class UserDAO {
 
         return bean;
 
+    }
+
+    public static List<User> getUnregisteredClientsList() {
+        //preparing some objects for connection
+        Statement stmt = null;
+        //String username = bean.getUserName();
+        String searchQuery =
+                "select * from users where role='Unregistered'";
+        List<User> users = new ArrayList<User>();
+        try {
+            //connect to DB
+            connection = ConnectionManager.getConnection();
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            boolean more = rs.next();
+            // if user does not exist set the isValid variable to false
+            //if user exists set the isValid variable to true
+            while (more) {
+                User user = new User();
+                user.setLastName(rs.getString("last_name"));
+                user.setId(rs.getLong("id"));
+                user.setEmail(rs.getString("email"));
+                user.setRole(rs.getString("role"));
+                user.setFirstName(rs.getString("first_name"));
+                user.setValid(true);
+                users.add(user);
+                more = rs.next();
+            }
+            return users;
+
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+        //some exception handling
+        finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                }
+                connection = null;
+            }
+        }
+        return users;
     }
 
     public static boolean register(User user) {

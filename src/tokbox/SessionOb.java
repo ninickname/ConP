@@ -13,7 +13,7 @@ import static tokbox.TokBoxApi.*;
 
 public class SessionOb {
 
-    private Boolean isActive;
+    public Boolean isActive;
     private User client;
     //tokbox
     public String sessionId;
@@ -32,6 +32,16 @@ public class SessionOb {
     public static void addNewSession(SessionOb ses)
     {
         currentSessions.add(ses);
+    }
+
+    public static List<SessionOb> getAllRunningSessions()
+    {
+        List<SessionOb> runningSessions = new ArrayList<SessionOb>();
+        for(SessionOb currentSession: currentSessions)
+            if(currentSession.isActive)
+                runningSessions.add(currentSession);
+
+        return runningSessions;
     }
 
     public static String getToken(String sessionId) {

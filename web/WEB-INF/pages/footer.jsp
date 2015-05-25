@@ -6,12 +6,14 @@
     </div>
 </footer>
 <script>
-    $.getJSON("/data/conf_main.json", function(json) {
+    $.getJSON("${pageContext.request.contextPath}/data/conf_main.json", function(json) {
         // Set company name
         document.getElementById("company_name").innerHTML = json.company_name;
 
         // Set body css style
         $('body').css(json.body_css);
+
+        $('.nav').css(json.navbar_css);
 
     });
 </script>

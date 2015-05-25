@@ -3,23 +3,29 @@
 
 <div class="well">
     <form action="CustomizationServlet" class="form-horizontal"  method="POST">
-        <legend>Company Name:</legend>
-        <div class="form-group">
-            <!-- Username -->
-            <label class="form-label col-md-2" for="company_name">Company name:</label>
-            <div class="col-lg-4">
-                <input type="text" id="company_name" name="company_name" ng-model="company_name" placeholder="Enter company name" class="form-control" >
-            </div>
-        </div>
         <legend>Body css:</legend>
         <div class="form-group">
             <!-- Username -->
-            <label class="form-label col-md-2" for="background">Background:</label>
+            <label class="form-label col-md-2" for="body_css_background">Background:</label>
             <div class="col-lg-4">
-                <input type="text" id="background" name="background" ng-model="background" placeholder="Enter css code" class="form-control" >
+                <input type="text" id="body_css_background" name="body_css.background-color" ng-model="body_css.background" placeholder="Enter css code" class="form-control" >
             </div>
         </div>
         <legend>Navbar css:</legend>
+        <div class="form-group">
+            <!-- Username -->
+            <label class="form-label col-md-2" for="navbar_css_background">Background:</label>
+            <div class="col-lg-4">
+                <input type="text" id="navbar_css_background" name="navbar_css.background-color" ng-model="navbar_css.background" placeholder="Enter css code" class="form-control" >
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- Username -->
+            <label class="form-label col-md-2" for="navbar_css_border">border:</label>
+            <div class="col-lg-4">
+                <input type="text" id="navbar_css_border" name="navbar_css.border" ng-model="navbar_css.border" placeholder="Enter css code" class="form-control" >
+            </div>
+        </div>
         <div class="form-group">
             <!-- Button -->
             <div class="controls">
