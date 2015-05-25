@@ -19,14 +19,22 @@ public class tokboxServlet extends HttpServlet {
         int apiKey = 45238382; // YOUR API KEY
         String apiSecret = "b94b18893ae6661e08d14729315543717472cc33";
         String sessionId = null;
+        String token = null;
 
         try {
             OpenTok opentok = new OpenTok(apiKey, apiSecret);
 
         Session session = null;
         try {
+            // Create new session
             session  = opentok.createSession();
+
+            // Get session id
             sessionId = session.getSessionId();
+
+            // Generate token for sessionId
+            token = opentok.generateToken(sessionId);
+
         } catch (OpenTokException e) {
             e.printStackTrace();
         }
@@ -35,10 +43,8 @@ public class tokboxServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-
-        System.out.println("Got an session id "+sessionId);
-        //SessionOb sessionp = new SessionOb(null,sessionId,true);
-
-        response.sendRedirect("index.jsp?content=client/clientPage&apiKey=123&sessionId="+sessionId+"&token=123");
+        // client - sessionId - isActive
+        SessionOb sessionp = new SessionOb(null,sessionId,true);
+        response.sendRedirect("index.jsp?content=video_call&sessionId="+sessionId+"&token="+token);
     }
 }
