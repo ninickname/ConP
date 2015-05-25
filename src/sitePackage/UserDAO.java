@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class UserDAO {
-    static String[] Roles = {"Admin", "User", "Manager", "Employee"};
+    public static String[] Roles = {"Admin", "User", "Manager", "Employee" , "Unregistered"};
     static String salt = "$2a$10$TqhxPqaGssU/Ft9lrUssIu";
     //NOTE hardcoded salt for the cookie :D
 

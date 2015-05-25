@@ -61,3 +61,37 @@ header.carousel .fill {
     background-position: center;
     background-size: cover;
 }
+
+/* video call page css */
+
+#video_call #end_session_btn{
+
+    display: none;
+}
+#video_call{
+    overflow: hidden;
+}
+
+.loading{
+  padding-right: 45px;
+  background-image: url("/images/spin.svg");
+  background-position: 100% 50%;
+  background-size: 25px;
+  background-repeat: no-repeat;
+}
+
+div#videoCaller {
+    width: 100%!important;
+    height: 100%!important;
+    top:0;
+    position: absolute!important;
+}
+
+div#videoWrapper {
+    width: 20%!important;
+    height: 20%!important;
+    z-index: 1000;
+    top:0;
+    left:0;
+    position: absolute!important;
+}

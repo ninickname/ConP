@@ -47,4 +47,5 @@ public class tokboxServlet extends HttpServlet {
         SessionOb sessionp = new SessionOb(null,sessionId,true);
         response.sendRedirect("index.jsp?content=video_call&sessionId="+sessionId+"&token="+token);
     }
+
 }

@@ -13,6 +13,14 @@ import static tokbox.TokBoxApi.*;
 
 public class SessionOb {
 
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
     private Boolean isActive;
     private User client;
     //tokbox
@@ -49,5 +57,7 @@ public class SessionOb {
 
         return token;
     }
+
+
 
 }

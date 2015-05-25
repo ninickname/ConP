@@ -37,6 +37,7 @@ public class TokBoxApi {
 //            Session session = opentok.createSession(new SessionProperties.Builder()
 //                    .mediaMode(MediaMode.ROUTED)
 //                    .build());
+
             Session session = opentok.createSession();
 
             sessionToReturn =  session.getSessionId();
@@ -64,5 +65,4 @@ public class TokBoxApi {
         System.out.println("Got an session id "+sessionId+" token is : "+tokenToReturn);
         return tokenToReturn;
     }
-
 }

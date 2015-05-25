@@ -15,12 +15,6 @@
                     for (Cookie cook : request.getCookies()) {
                         if (cook.getName().equals("role")) {
                             role = UserDAO.getRoleFromCookie(cook);
-
-                            //TODO  REMOVE THIS IF WHEN DONE DEBUGNING
-                            if (role.equals("Unregistered") ){
-                                role = "Admin";
-                            }
-
                         }
                     }
 

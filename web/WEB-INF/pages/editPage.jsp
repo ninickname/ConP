@@ -21,6 +21,8 @@
             $scope.user_name = "<%=user.getUserName()%>";
             $scope.email = "<%=user.getEmail()%>";
             $scope.id = "<%=user.getId()%>";
+            $scope.role = "<%=user.getRole()%>"
+
         });
     </script>
 
@@ -101,7 +103,23 @@
                 <input type="password" id="password" name="password" ng-model="password"
                        placeholder="enter password"
                        class="form-control" >
-                <span style="color:red" ng-show="editUserController.password.">fill in in case you want to update the password.</span>
+                <span style="color:red" ng-show="editUserController.password">fill in in case you want to update the password.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!-- Password-->
+            <label class="form-label col-md-2" for="role">Role</label>
+
+            <div class="col-lg-4">
+
+                <select class="form-control" ng-model="role" name="role" id="role">
+                    <% for (String role :UserDAO.Roles){
+                        %><option value="<%=role%>"><%=role%></option><%
+                    }
+                    %>
+
+                </select>
             </div>
         </div>
         <div class="form-group">
