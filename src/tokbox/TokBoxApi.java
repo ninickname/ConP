@@ -13,15 +13,20 @@ public class TokBoxApi {
 
 
     public static final int apiKey = 45238382; // YOUR API KEY
-    public static final String apiSecret = "Secret: b94b18893ae6661e08d14729315543717472cc33";
+    public static final String apiSecret = "b94b18893ae6661e08d14729315543717472cc33";
     private static int sessionTimeout =1*60*60; //7 * 24 * 60 * 60;
-    public static OpenTok opentok = null;
+
+    public static OpenTok opentok;
+
+    static {
+        opentok = new OpenTok(apiKey, apiSecret);
+    }
 
 
     public static String getTokBoxSession()
     {
         String sessionToReturn=null;
-        System.out.println("Getting Session");
+
         try
         {
             if (opentok == null )
