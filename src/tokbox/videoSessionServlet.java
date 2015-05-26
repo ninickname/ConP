@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 
 @WebServlet(name = "videoSessionServlet",urlPatterns={"/endVideoCall"})
 public class videoSessionServlet extends HttpServlet {
@@ -17,12 +18,10 @@ public class videoSessionServlet extends HttpServlet {
 
 
         // client - sessionId - isActive
-        for (SessionOb ses : SessionOb.currentSessions)
+        for (SessionOb ses : SessionOb.getSessions())
         {
-            if(ses.sessionId.equals(request.getParameter("sessionId"))){
-                //SessionOb.currentSessions.remove(ses);
-                ses.setIsActive(false);
-
+            if(ses.getSessionId().equals(request.getParameter("sessionId"))){
+                ses.setAborted_at(new Date());
                 break;
                 
             }

@@ -44,6 +44,7 @@ public class UserDAO {
 
 
                 if (hashed.contentEquals(rs.getString("password"))) {
+
                     bean.setFirstName(rs.getString("first_name"));
                     bean.setLastName(rs.getString("last_name"));
                     bean.setId(rs.getLong("id"));

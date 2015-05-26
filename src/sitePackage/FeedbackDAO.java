@@ -23,8 +23,7 @@ class FeedbackDAO {
             stmt = connection.createStatement();
 
             System.out.println("before querry");
-            sqlQuery = "INSERT INTO feedback (id,sender_id,receiver_id,rate,content) " +
-                    "VALUES (?, ?, ?, ?,?)";
+            sqlQuery = "INSERT INTO feedback (id,sender_id,receiver_id,rate,content) VALUES (?, ?, ?, ?,?)";
             System.out.println(sqlQuery);
 
             psmtp = connection.prepareStatement(sqlQuery);

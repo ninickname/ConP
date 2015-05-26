@@ -3,6 +3,7 @@ package tokbox;
 import com.opentok.OpenTok;
 import com.opentok.Session;
 import com.opentok.exception.OpenTokException;
+import sitePackage.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,10 @@ import java.io.IOException;
 @WebServlet(name = "tokboxServlet",urlPatterns={"/tokboxServlet"})
 public class tokboxServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // TODO: prevent from more then two users connect to the same session
+        // TODO: get current user
+        User currentUser = new User();
 
         // inside a class or method...
         int apiKey = 45238382; // YOUR API KEY
@@ -44,7 +49,7 @@ public class tokboxServlet extends HttpServlet {
         }
 
         // client - sessionId - isActive
-        SessionOb sessionp = new SessionOb(null,sessionId,true);
+        SessionOb sessionp = new SessionOb(currentUser,null,sessionId);
         response.sendRedirect("index.jsp?content=video_call&sessionId="+sessionId+"&token="+token);
     }
 
