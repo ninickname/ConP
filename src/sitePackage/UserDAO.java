@@ -1,14 +1,11 @@
 package sitePackage;
 
 
-import javax.servlet.http.Cookie;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class UserDAO {
     public static String[] Roles = {"Admin", "User", "Manager", "Employee" , "Unregistered"};
-  //  static String salt = "$2a$10$TqhxPqaGssU/Ft9lrUssIu";
-    //NOTE hardcoded salt for the cookie :D
 
     static Connection connection = null;
     static ResultSet rs = null;
@@ -217,18 +214,6 @@ public class UserDAO {
         }
         return ret;
     }
-/*
-    public static String getRoleFromCookie(Cookie cook) {
-        String hashed = cook.getValue();
-
-        for (String role : UserDAO.Roles) {
-            String hashedRole = BCrypt.hashpw(role, UserDAO.salt);
-            if (hashed.equals(hashedRole)) {
-                return role;
-            }
-        }
-        return "Unregistered";
-    }*/
 
     public static User getUserById(long id) {
 
@@ -334,9 +319,8 @@ public class UserDAO {
             psmtp.setString(4, user.getPassword());
             psmtp.setString(5, user.getSalt());
             psmtp.setString(6, user.getEmail());
-            psmtp.setString(7, new Long(user.getId()).toString());
-            psmtp.setString(8, new Long(oldUser.getId()).toString());
-
+            psmtp.setLong(  7, user.getId());
+            psmtp.setLong(  8, oldUser.getId());
 
             psmtp.executeUpdate();
 
@@ -344,7 +328,6 @@ public class UserDAO {
             if (!user.getEmail().equals(oldUser.getEmail())) {
                 MailClass.send(oldUser.getEmail(), "the user of id " + oldUser.getEmail() + " now will be sending emails to " + user.getEmail() + " and not to this mail from now on.");
             }
-
 
         } catch (SQLException e) {
             e.printStackTrace();

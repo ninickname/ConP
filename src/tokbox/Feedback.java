@@ -1,6 +1,7 @@
 package tokbox;
 
 import sitePackage.ConnectionManager;
+import sitePackage.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -60,7 +61,6 @@ public class Feedback {
             e.printStackTrace();
         }
     }
-
     /***
      * Get Sessions
      * @return List<SessionOb>
@@ -98,13 +98,101 @@ public class Feedback {
         return feedbacks;
     }
 
-    // TODO: get feedback by client id
+    // get feedback by client id
 
-    // TODO: get feedback by employee id
+    /**
+     * works for both employee and client
+     *
+     * @param bean - object of user class , either an employee or a client
+     * @return list of the feedback by the same user  or employee , in case the user is not iether of them, the function will return null
+     */
+    public static List<Feedback> getFeedbacks(User bean) {
 
-    // TODO: get avg rate feedback for client by client id
+        List<Feedback> feedbacks = new ArrayList<Feedback>();
 
-    // TODO: get avg rate feedback for employee by employee id
+        Statement stmt = null;
+        PreparedStatement psmtp = null;
+
+        connection = ConnectionManager.getConnection();
+        try {
+            stmt = connection.createStatement();
+            String sqlQuery = null;
+            if(bean.getRole() =="User") {
+                sqlQuery = "select * from feedbacks where session_id in (SELECT id FROM sessions WHERE client_id = ?)";
+            }
+            else if(bean.getRole() =="Employee"){
+                sqlQuery = "select * from feedbacks where session_id in (SELECT id FROM sessions WHERE employee_id = ?)";
+            }else {
+                return null;
+            }
+            psmtp = connection.prepareStatement(sqlQuery);
+            psmtp.setLong(1, bean.getId());
+
+            rs = psmtp.executeQuery();
+
+
+            while (rs.next()) {
+
+                Feedback sob = new Feedback();
+
+                sob.setRate(rs.getInt("rate"));
+                sob.setTitle(rs.getString("title"));
+                sob.setContent(rs.getString("content"));
+                sob.setSessionById(rs.getInt("session_id"));
+
+                feedbacks.add(sob);
+            }
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+
+        return feedbacks;
+    }
+
+    //  get avg rate feedback for client by client id
+    //  get avg rate feedback for employee by employee id
+
+
+
+    public static Long avfRateFeedback(User bean) {
+
+        PreparedStatement psmtp = null;
+
+        Long ret = null;
+
+        connection = ConnectionManager.getConnection();
+
+        try {
+
+            String sqlQuery;
+
+            if(bean.getRole() =="User") {
+                sqlQuery = "SELECT  AVG(rate) FROM feedbacks WHERE session_id in  (SELECT id FROM sessions WHERE client_id = ?)" ; // tested and working
+            }
+            else if(bean.getRole() =="Employee"){
+                sqlQuery = "SELECT  AVG(rate) FROM feedbacks where session_id in (SELECT id FROM sessions WHERE employee_id = ?)";//tested and working
+            }else {
+                return null;
+            }
+            psmtp = connection.prepareStatement(sqlQuery);
+            psmtp.setLong(1, bean.getId());
+
+
+
+
+
+
+            rs = psmtp.executeQuery(sqlQuery);
+
+            ret = Long.valueOf(rs.toString());
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+
+        return ret;
+    }
+
+
 
     public int getRate() {
         return rate;

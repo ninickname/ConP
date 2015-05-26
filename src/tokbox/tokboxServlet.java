@@ -18,7 +18,7 @@ public class tokboxServlet extends HttpServlet {
 
         // TODO: prevent from more then two users connect to the same session
         // TODO: get current user
-        User currentUser = new User();
+        User currentUser = (User)(request.getSession().getAttribute("user"));
 
         // inside a class or method...
         int apiKey = 45238382; // YOUR API KEY

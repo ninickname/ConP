@@ -30,14 +30,8 @@ public class LoginServlet extends HttpServlet {
 
                 System.out.println("request = [" + request + "], response = [" + response + "]");
                 System.out.println("role is " + role);
-               // Cookie a = new Cookie("role", "empty");
+                     session.setAttribute("user" , user);
 
-                //a.setValue(BCrypt.hashpw(user.getRole(), UserDAO.salt));
-
-            //    role = UserDAO.getRoleFromCookie(a);
-                session.setAttribute("user" , user);
-
-              //  response.addCookie(a);
 
                 if (role.equals("User")) {
                     response.sendRedirect("index.jsp?content=client/clientPage");

@@ -12,6 +12,15 @@ import static tokbox.TokBoxApi.*;
 
 public class SessionOb {
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    private long id;
     private User client;
     private User employee;
     private String sessionId;
@@ -103,9 +112,56 @@ public class SessionOb {
         }
     }
 
-    // TODO: update session
+    // update session
 
-    // TODO: delete session
+    public static void updateSession(SessionOb sob) {
+        Statement stmt = null;
+        PreparedStatement psmtp = null;
+
+        connection = ConnectionManager.getConnection();
+        try {
+
+            String sqlQuery = "UPDATE sessions SET client_id = ? , employee_id = ? ,sessionId = ?  WHERE id= ?";
+
+            System.out.println(sqlQuery);
+
+            psmtp = connection.prepareStatement(sqlQuery);
+
+            psmtp.setLong   (1, sob.client.getId() );
+            psmtp.setLong   (2, sob.employee.getId());
+            psmtp.setString (3, sob.sessionId);
+            psmtp.setLong   (4, sob.getId());
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    //  delete session
+
+    public static void deleteSession(SessionOb sob) {
+        Statement stmt = null;
+        PreparedStatement psmtp = null;
+
+        connection = ConnectionManager.getConnection();
+        try {
+            stmt = connection.createStatement();
+
+            String sqlQuery = "DELETE FROM sessions WHERE id = ?";
+
+
+            psmtp = connection.prepareStatement(sqlQuery);
+
+            psmtp.setLong(1,  sob.getId());
+
+            psmtp.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /***
      * Get Sessions
