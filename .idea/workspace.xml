@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2c52af8-31d9-4c00-85e6-e6c6871f2180" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\ConP\src\sitePackage\Feedback.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\ConP\src\sitePackage\FeedbackDAO.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/sitePackage/LoginServlet.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/sitePackage/LoginServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/sitePackage/LogoutServlet.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/sitePackage/LogoutServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/sitePackage/UserDAO.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/sitePackage/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tokbox/Feedback.java" afterPath="$PROJECT_DIR$/src/tokbox/Feedback.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sitePackage/LoginServlet.java" afterPath="$PROJECT_DIR$/src/sitePackage/LoginServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sitePackage/LogoutServlet.java" afterPath="$PROJECT_DIR$/src/sitePackage/LogoutServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sitePackage/MidEditServlet.java" afterPath="$PROJECT_DIR$/src/sitePackage/MidEditServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tokbox/SessionOb.java" afterPath="$PROJECT_DIR$/src/tokbox/SessionOb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sitePackage/UserDAO.java" afterPath="$PROJECT_DIR$/src/sitePackage/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tokbox/tokboxServlet.java" afterPath="$PROJECT_DIR$/src/tokbox/tokboxServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\Users\Nick\Documents\ConP\jdb_new.sql" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jdb.sql" afterPath="$PROJECT_DIR$/jdb.sql" />
     </list>
     <ignored path="ConP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -173,16 +160,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video_call.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/video_call.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1530">
-              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EditServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sitePackage/EditServlet.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -203,10 +180,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SessionOb.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SessionOb.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tokbox/SessionOb.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.771645" vertical-offset="52" max-vertical-offset="2856">
+            <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="3060">
               <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding>
                 <element signature="method#SessionOb#0;class#SessionOb#0" expanded="false" />
@@ -220,25 +197,25 @@
                 <element signature="method#getSessionById#0;class#SessionOb#0" expanded="false" />
                 <element signature="method#getSessionsByClientId#0;class#SessionOb#0" expanded="false" />
                 <element signature="method#getSessionsByEmployeeId#0;class#SessionOb#0" expanded="false" />
-                <marker date="1432651281212" expanded="true" signature="2427:2496" placeholder="INSERT INTO ..." />
-                <marker date="1432651281212" expanded="true" signature="3106:3185" placeholder="UPDATE sessi..." />
-                <marker date="1432651281212" expanded="true" signature="3884:3917" placeholder="DELETE FROM ..." />
-                <marker date="1432651281212" expanded="true" signature="4518:4540" placeholder="select * fro..sessions..." />
-                <marker date="1432651281212" expanded="true" signature="5574:5620" placeholder="select * fro..sessions..." />
-                <marker date="1432651281212" expanded="true" signature="6638:6672" placeholder="select * fro..sessions..." />
-                <marker date="1432651281212" expanded="true" signature="7675:7716" placeholder="select * fro..sessions..." />
-                <marker date="1432651281212" expanded="true" signature="8790:8833" placeholder="select * fro..sessions..." />
-                <marker date="1432651281212" expanded="true" signature="9847:9951" placeholder="SELECT AVG(D..sessions..." />
+                <marker date="1432672082893" expanded="true" signature="2427:2496" placeholder="INSERT INTO ..." />
+                <marker date="1432672082893" expanded="true" signature="3412:3491" placeholder="UPDATE sessi..." />
+                <marker date="1432672082893" expanded="true" signature="4190:4223" placeholder="DELETE FROM ..." />
+                <marker date="1432672082893" expanded="true" signature="4824:4846" placeholder="select * fro..sessions..." />
+                <marker date="1432672082893" expanded="true" signature="5880:5926" placeholder="select * fro..sessions..." />
+                <marker date="1432672082893" expanded="true" signature="6944:6978" placeholder="select * fro..sessions..." />
+                <marker date="1432672082893" expanded="true" signature="7981:8022" placeholder="select * fro..sessions..." />
+                <marker date="1432672082893" expanded="true" signature="9096:9139" placeholder="select * fro..sessions..." />
+                <marker date="1432672082893" expanded="true" signature="10153:10257" placeholder="SELECT AVG(D..sessions..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sitePackage/User.java">
+      <file leaf-file-name="LogoutServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sitePackage/LogoutServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="206" max-vertical-offset="1173">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.16242038" vertical-offset="0" max-vertical-offset="1256">
+              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -286,7 +263,6 @@
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/src/sitePackage/feedback.java" />
         <option value="$PROJECT_DIR$/src/sitePackage/Feedback.java" />
-        <option value="$PROJECT_DIR$/jdb.sql" />
         <option value="$PROJECT_DIR$/src/sitePackage/FeedbackDAO.java" />
         <option value="$PROJECT_DIR$/src/sitePackage/LogoutServlet.java" />
         <option value="$PROJECT_DIR$/src/sitePackage/LoginServlet.java" />
@@ -295,6 +271,8 @@
         <option value="$PROJECT_DIR$/src/tokbox/SessionOb.java" />
         <option value="$PROJECT_DIR$/src/sitePackage/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/tokbox/tokboxServlet.java" />
+        <option value="$PROJECT_DIR$/jdb_new.sql" />
+        <option value="$PROJECT_DIR$/jdb.sql" />
       </list>
     </option>
   </component>
@@ -309,8 +287,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-6" />
-    <option name="y" value="-6" />
+    <option name="x" value="-81" />
+    <option name="y" value="648" />
     <option name="width" value="2572" />
     <option name="height" value="1412" />
   </component>
@@ -339,6 +317,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -493,7 +472,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -1083,11 +1061,12 @@
       <workItem from="1432641483271" duration="7814000" />
       <workItem from="1432651394101" duration="2797000" />
       <workItem from="1432665247624" duration="234000" />
+      <workItem from="1432672744081" duration="158000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133086000" />
+    <option name="totallyTimeSpent" value="133244000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1110,38 +1089,38 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="2572" height="1412" extended-state="7" />
-    <editor active="false" />
+    <frame x="-81" y="648" width="2572" height="1412" extended-state="0" />
+    <editor active="true" />
     <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3029595" sideWeight="0.32166997" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20198807" sideWeight="0.49941927" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15149106" sideWeight="0.9085821" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16745469" sideWeight="0.09141791" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20198807" sideWeight="0.49941927" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="ASM" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298887" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24970178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22741432" sideWeight="0.67037773" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32554516" sideWeight="0.4998012" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25856698" sideWeight="0.67833" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15149106" sideWeight="0.9085821" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16745469" sideWeight="0.09141791" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22741432" sideWeight="0.67037773" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32554516" sideWeight="0.4998012" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25856698" sideWeight="0.67833" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10373609" sideWeight="0.5005807" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33489096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1211,26 +1190,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sitePackage/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2499">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#login#0;class#UserDAO#0" expanded="false" />
-            <element signature="method#register#0;class#UserDAO#0" expanded="false" />
-            <element signature="method#getIdsWithLowerRole#0;class#UserDAO#0" expanded="false" />
-            <element signature="method#getUserById#0;class#UserDAO#0" expanded="false" />
-            <marker date="1432651719959" expanded="true" signature="479:533" placeholder="select * fro..users..." />
-            <marker date="1432651719959" expanded="true" signature="3146:3210" placeholder="select * fro..users..." />
-            <marker date="1432651719959" expanded="true" signature="3620:3753" placeholder="INSERT INTO ..." />
-            <marker date="1432651719959" expanded="true" signature="5208:5240" placeholder="select * fro..users..." />
-            <marker date="1432651719959" expanded="true" signature="6733:6774" placeholder="select * fro..users..." />
-            <marker date="1432651719959" expanded="true" signature="9332:9451" placeholder="UPDATE users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sitePackage/RegisterServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="646">
@@ -1489,21 +1448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jdb.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.0" vertical-offset="642" max-vertical-offset="1921">
-          <caret line="51" column="25" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sitePackage/LogoutServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sitePackage/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
@@ -1644,7 +1588,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tokbox/SessionOb.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.771645" vertical-offset="52" max-vertical-offset="2856">
+        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="3060">
           <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding>
             <element signature="method#SessionOb#0;class#SessionOb#0" expanded="false" />
@@ -1658,16 +1602,32 @@
             <element signature="method#getSessionById#0;class#SessionOb#0" expanded="false" />
             <element signature="method#getSessionsByClientId#0;class#SessionOb#0" expanded="false" />
             <element signature="method#getSessionsByEmployeeId#0;class#SessionOb#0" expanded="false" />
-            <marker date="1432651281212" expanded="true" signature="2427:2496" placeholder="INSERT INTO ..." />
-            <marker date="1432651281212" expanded="true" signature="3106:3185" placeholder="UPDATE sessi..." />
-            <marker date="1432651281212" expanded="true" signature="3884:3917" placeholder="DELETE FROM ..." />
-            <marker date="1432651281212" expanded="true" signature="4518:4540" placeholder="select * fro..sessions..." />
-            <marker date="1432651281212" expanded="true" signature="5574:5620" placeholder="select * fro..sessions..." />
-            <marker date="1432651281212" expanded="true" signature="6638:6672" placeholder="select * fro..sessions..." />
-            <marker date="1432651281212" expanded="true" signature="7675:7716" placeholder="select * fro..sessions..." />
-            <marker date="1432651281212" expanded="true" signature="8790:8833" placeholder="select * fro..sessions..." />
-            <marker date="1432651281212" expanded="true" signature="9847:9951" placeholder="SELECT AVG(D..sessions..." />
+            <marker date="1432672082893" expanded="true" signature="2427:2496" placeholder="INSERT INTO ..." />
+            <marker date="1432672082893" expanded="true" signature="3412:3491" placeholder="UPDATE sessi..." />
+            <marker date="1432672082893" expanded="true" signature="4190:4223" placeholder="DELETE FROM ..." />
+            <marker date="1432672082893" expanded="true" signature="4824:4846" placeholder="select * fro..sessions..." />
+            <marker date="1432672082893" expanded="true" signature="5880:5926" placeholder="select * fro..sessions..." />
+            <marker date="1432672082893" expanded="true" signature="6944:6978" placeholder="select * fro..sessions..." />
+            <marker date="1432672082893" expanded="true" signature="7981:8022" placeholder="select * fro..sessions..." />
+            <marker date="1432672082893" expanded="true" signature="9096:9139" placeholder="select * fro..sessions..." />
+            <marker date="1432672082893" expanded="true" signature="10153:10257" placeholder="SELECT AVG(D..sessions..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdb.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44170773" vertical-offset="142" max-vertical-offset="2686">
+          <caret line="40" column="79" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sitePackage/LogoutServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16242038" vertical-offset="0" max-vertical-offset="1256">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
