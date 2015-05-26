@@ -31,7 +31,7 @@ class FeedbackDAO {
             psmtp.setString(1, new Long(feedback.getId()).toString());
             psmtp.setString(2, new Long(feedback.getSender_id()).toString());
             psmtp.setString(3, new Long(feedback.getReceiver_id()).toString());
-            psmtp.setString(4, new Long(feedback.getRate()).toString());// currently the old password
+            psmtp.setString(4, new Long(feedback.getRate()).toString());
             psmtp.setString(5, feedback.getContent());
 
             psmtp.executeUpdate();

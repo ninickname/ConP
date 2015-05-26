@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
@@ -29,13 +30,14 @@ public class LoginServlet extends HttpServlet {
 
                 System.out.println("request = [" + request + "], response = [" + response + "]");
                 System.out.println("role is " + role);
-                Cookie a = new Cookie("role", "empty");
+               // Cookie a = new Cookie("role", "empty");
 
-                a.setValue(BCrypt.hashpw(user.getRole(), UserDAO.salt));
+                //a.setValue(BCrypt.hashpw(user.getRole(), UserDAO.salt));
 
-                role = UserDAO.getRoleFromCookie(a);
+            //    role = UserDAO.getRoleFromCookie(a);
+                session.setAttribute("user" , user);
 
-                response.addCookie(a);
+              //  response.addCookie(a);
 
                 if (role.equals("User")) {
                     response.sendRedirect("index.jsp?content=client/clientPage");

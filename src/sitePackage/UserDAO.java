@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class UserDAO {
     public static String[] Roles = {"Admin", "User", "Manager", "Employee" , "Unregistered"};
-    static String salt = "$2a$10$TqhxPqaGssU/Ft9lrUssIu";
+  //  static String salt = "$2a$10$TqhxPqaGssU/Ft9lrUssIu";
     //NOTE hardcoded salt for the cookie :D
 
     static Connection connection = null;
@@ -217,7 +217,7 @@ public class UserDAO {
         }
         return ret;
     }
-
+/*
     public static String getRoleFromCookie(Cookie cook) {
         String hashed = cook.getValue();
 
@@ -228,7 +228,7 @@ public class UserDAO {
             }
         }
         return "Unregistered";
-    }
+    }*/
 
     public static User getUserById(long id) {
 
