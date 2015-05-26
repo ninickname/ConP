@@ -12,6 +12,11 @@ public class MidEditServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        if (request.getSession().getAttribute("user") == null){
+            response.sendRedirect("index.jsp");
+        }
+        User userToEdit = UserDAO.getUserById( new Long(request.getParameter("id").trim()) );
+        request.getSession().setAttribute("userToEdit" , userToEdit );
         response.sendRedirect("index.jsp?content=editPage");
     }
 }

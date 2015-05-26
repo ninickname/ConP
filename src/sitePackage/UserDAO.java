@@ -42,6 +42,7 @@ public class UserDAO {
 
                 if (hashed.contentEquals(rs.getString("password"))) {
 
+                    bean.setSalt(rs.getString("salt"));
                     bean.setFirstName(rs.getString("first_name"));
                     bean.setLastName(rs.getString("last_name"));
                     bean.setId(rs.getLong("id"));
@@ -288,7 +289,7 @@ public class UserDAO {
 
         if (samePassword) {
             user.setSalt(oldUser.getSalt());
-            user.setPassword(oldUser.getPassword());
+            user.setPassword(BCrypt.hashpw(user.getPassword(), user.getSalt()));
         } else {
             String salt = BCrypt.gensalt();
             String hashed = BCrypt.hashpw(user.getPassword(), salt);
@@ -307,7 +308,7 @@ public class UserDAO {
         try {
 
             System.out.println("before querry");
-            String sqlQuery = "UPDATE users  SET first_name = ? ,last_name = ? ,user_name = ? ,password = ? ,salt = ? ,email = ?  , id = ? WHERE id= ?";
+            String sqlQuery = "UPDATE users  SET first_name = ? ,last_name = ? ,user_name = ? ,password = ? ,salt = ? ,email = ?  WHERE id= ?";
 
             System.out.println(sqlQuery);
 
@@ -320,7 +321,6 @@ public class UserDAO {
             psmtp.setString(5, user.getSalt());
             psmtp.setString(6, user.getEmail());
             psmtp.setLong(  7, user.getId());
-            psmtp.setLong(  8, oldUser.getId());
 
             psmtp.executeUpdate();
 

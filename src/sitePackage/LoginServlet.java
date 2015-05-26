@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 
                 System.out.println("request = [" + request + "], response = [" + response + "]");
                 System.out.println("role is " + role);
-                     session.setAttribute("user" , user);
+                session.setAttribute("user" , user);
 
 
                 if (role.equals("User")) {
