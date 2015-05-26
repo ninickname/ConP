@@ -228,7 +228,7 @@ public class SessionOb {
 
             stmt = connection.createStatement();
 
-            String searchQuery = "select * from sessions where aborted_at = NULL";
+            String searchQuery = "select * from sessions where aborted_at IS NULL";
 
             rs = stmt.executeQuery(searchQuery);
 

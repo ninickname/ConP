@@ -2,15 +2,19 @@
 <script src="//static.opentok.com/v2/js/opentok.min.js"></script>
 <div class="well" id="video_call">
 
-    <div class="row"><div id="videoWrapper" class="col-md-12"></div><div id="videoCaller" class="col-md-12"></div></div>
+    <div class="row">
+        <div class="well">
+            <div id="videoWrapper" class="col-md-12"></div>
+            <div id="videoCaller" class="col-md-12"></div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
-    <button onclick="endSession()" class="btn btn-success" id="end_session_btn">End call</button>
-
-    <button onclick="startSession()" class="btn btn-success" id="start_session_btn">Press me now!!!</button>
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackleModal" data-whatever="@getbootstrap">Feedback</button>
+            <button onclick="endSession()" class="btn btn-warning" id="end_session_btn">End call</button>
+            <button onclick="startSession()" class="btn btn-success" id="start_session_btn">Turn on video!!!</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackleModal" data-whatever="@getbootstrap">Feedback</button>
         </div>
+        <small class="text-danger">Make sure you allowed access your video camera from the browser</small>
 </div>
     <div class="modal fade" id="feedbackleModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -38,6 +42,15 @@
 
 
     <script type="text/javascript">
+
+        var cw = $('#videoCaller').width();
+        $('#videoCaller').css({'height':cw+'px!important'});
+
+
+        var cv = $('#videoWrapper').width();
+        console.log(cv);
+        $('#videoWrapper').css({'height':cv+'px!important'});
+
         var apiKey;
         var sessionId;
         var token;
@@ -54,7 +67,7 @@
             videoSession = OT.initSession(apiKey, sessionId);
 
             videoSession.on("streamCreated", function (event) {
-                videoSession.subscribe(event.stream,"videoCaller");
+                videoSession.subscribe(event.stream,"videoCaller",{width: "100%", height: "100%"});
             });
 
             videoSession.connect(token, function (error) {
