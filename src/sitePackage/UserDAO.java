@@ -2,9 +2,10 @@ package sitePackage;
 
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UserDAO
-{
+public class UserDAO {
     static Connection connection = null;
     static ResultSet rs = null;
 
@@ -18,32 +19,29 @@ public class UserDAO
         String searchQuery =
                 "select * from users where user_name='" + username + "'";
 
-        try
-        {
+        try {
             //connect to DB
             connection = ConnectionManager.getConnection();
-            stmt=connection.createStatement();
+            stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
 
             // if user does not exist set the isValid variable to false
-            if (!more)
-            {
+            if (!more) {
                 System.out.println("Sorry, you are not a registered user! Please sign up first");
                 bean.setValid(false);
             }
 
             //if user exists set the isValid variable to true
-            else if (more)
-            {
+            else if (more) {
                 bean.setSalt(rs.getString("salt"));
                 String hashed = BCrypt.hashpw(bean.getPassword(), bean.getSalt());
                 // salt from the database and the password from the input ;
 
 
-                if (hashed.contentEquals( rs.getString("password") ) ){
+                if (hashed.contentEquals(rs.getString("password"))) {
                     bean.setFirstName(rs.getString("first_name"));
-                    bean.setLastName(rs.getString("last_name") );
+                    bean.setLastName(rs.getString("last_name"));
                     bean.setId(rs.getLong("id"));
                     bean.setEmail(rs.getString("email"));
                     bean.setRole(rs.getString("role"));
@@ -51,32 +49,29 @@ public class UserDAO
                     System.out.println("Welcome " + bean.getFirstName() + "your role is " + bean.getRole());
 
                     bean.setValid(true);
-                }
-                else {
+                } else {
                     bean.setValid(false);
                 }
             }
-        }
-
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         }
 
         //some exception handling
-        finally
-        {
-            if (rs != null)	{
+        finally {
+            if (rs != null) {
                 try {
                     rs.close();
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
                 rs = null;
             }
 
             if (stmt != null) {
                 try {
                     stmt.close();
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
                 stmt = null;
             }
 
@@ -94,6 +89,145 @@ public class UserDAO
 
     }
 
+    public static List<User> ListClients() {
+
+        //preparing some objects for connection
+        Statement stmt = null;
+
+        //String username = bean.getUserName();
+
+        String searchQuery =
+                "select * from users where role='Unregistered'";
+        List<User> users = new ArrayList<User>();
+        try {
+            //connect to DB
+            connection = ConnectionManager.getConnection();
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            boolean more = rs.next();
+
+            // if user does not exist set the isValid variable to false
+
+
+            //if user exists set the isValid variable to true
+            while (more) {
+                User user = new User();
+                user.setLastName(rs.getString("last_name"));
+                user.setId(rs.getLong("id"));
+                user.setEmail(rs.getString("email"));
+                user.setRole(rs.getString("role"));
+                user.setFirstName(rs.getString("first_name"));
+                user.setValid(true);
+                users.add(user);
+
+                more = rs.next();
+            }
+
+            return users;
+
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+
+        //some exception handling
+        finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                }
+
+                connection = null;
+            }
+        }
+
+        return users;
+
+    }
+    public static boolean Validclient(User user) {
+
+        //preparing some objects for connection
+        Statement stmt = null;
+        PreparedStatement psmtp = null;
+        //String username = bean.getUserName();
+
+        String searchQuery =
+                 "select * from users where user_name='" + user.getId() + "'";
+        try {
+            //connect to DB
+            connection = ConnectionManager.getConnection();
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            boolean more = true;
+
+            // if user does not exist set the isValid variable to false
+
+
+            //if user exists set the isValid variable to true
+            while (more) {
+
+                String sqlQuery = "UPDATE `users` SET role='User' WHERE id ='" + user.getId() + "' ";
+                System.out.println(sqlQuery);
+                psmtp = connection.prepareStatement(sqlQuery);
+                psmtp.executeUpdate(sqlQuery);
+                user.setValid(true);
+                more = rs.next();
+            }
+
+            return true;
+
+        } catch (Exception ex) {
+            System.out.println(" Exception has occurred! " + ex);
+        }
+
+        //some exception handling
+        finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                }
+
+                connection = null;
+            }
+
+        }
+
+        return true;
+
+    }
     public static boolean register(User user) {
 
         String salt = BCrypt.gensalt();
@@ -106,10 +240,10 @@ public class UserDAO
         PreparedStatement psmtp = null;
 
         // Check for same username
-        String sqlQuery ="select * from users where user_name='"+ user.getUserName()+ "'";
+        String sqlQuery = "select * from users where user_name='" + user.getUserName() + "'";
 
-            //connect to DB
-            connection = ConnectionManager.getConnection();
+        //connect to DB
+        connection = ConnectionManager.getConnection();
         try {
             stmt = connection.createStatement();
 
@@ -117,11 +251,10 @@ public class UserDAO
             boolean more = rs.next();
 
             // if user does not exist set the isValid variable to true
-            if (!more)
-            {
+            if (!more) {
                 System.out.println("before querry");
                 sqlQuery = "INSERT INTO users (first_name,last_name,user_name,password,salt,email , id ) " +
-                                                "VALUES (?, ?, ?, ?,?,? , ?)";
+                        "VALUES (?, ?, ?, ?,?,? , ?)";
                 System.out.println(sqlQuery);
 
                 psmtp = connection.prepareStatement(sqlQuery);
@@ -135,7 +268,7 @@ public class UserDAO
                 psmtp.setString(7, new Long(user.getId()).toString());
 
                 psmtp.executeUpdate();
-                MailClass.send( user.getEmail() , MailClass.welcome );
+                MailClass.send(user.getEmail(), MailClass.welcome);
 
             }
 
