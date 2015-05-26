@@ -102,8 +102,20 @@ public class SessionOb {
 
             psmtp = connection.prepareStatement(sqlQuery);
 
-            psmtp.setInt(1, (int) sob.getClient().getId());
-            psmtp.setInt(2, (int) sob.getEmployee().getId());
+
+            if (sob.getEmployee()!= null) {
+                psmtp.setInt(1, (int) sob.getClient().getId());
+            }
+            else {
+                psmtp.setNull(1,java.sql.Types.INTEGER);
+            }
+
+            if (sob.getEmployee()!= null) {
+                psmtp.setInt(2, (int) sob.getEmployee().getId());
+            }
+            else {
+                psmtp.setNull(2,java.sql.Types.INTEGER);
+            }
             psmtp.setString(3, sob.getSessionId());
 
             psmtp.executeUpdate();
