@@ -71,7 +71,7 @@
             });
 
             videoSession.connect(token, function (error) {
-                publisher = OT.initPublisher("videoWrapper");
+                publisher = OT.initPublisher("videoWrapper",{width: "20%", height: "20%"});
                 videoSession.publish(publisher);
 
                 $("#start_session_btn").hide();

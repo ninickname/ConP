@@ -11,25 +11,20 @@ public class ConnectionManager {
     public static Connection getConnection()
     {
 
-        try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
+        if(con == null) {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
 
-            String url = Configuration.connectionURL;
+                String url = Configuration.connectionURL;
 
-            try
-            {
-                con = DriverManager.getConnection(url,Configuration.userName,Configuration.password);
+                try {
+                    con = DriverManager.getConnection(url, Configuration.userName, Configuration.password);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            } catch (ClassNotFoundException e) {
+                System.out.println(e);
             }
-            catch (SQLException ex)
-            {
-                ex.printStackTrace();
-            }
-        }
-
-        catch(ClassNotFoundException e)
-        {
-            System.out.println(e);
         }
 
         return con;

@@ -60,34 +60,6 @@ public class UserDAO {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         }
 
-        //some exception handling
-        finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                }
-                rs = null;
-            }
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                }
-                stmt = null;
-            }
-
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (Exception e) {
-                }
-
-                connection = null;
-            }
-        }
-
         return bean;
 
     }
@@ -186,33 +158,6 @@ public class UserDAO {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         }
 
-        //some exception handling
-        finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                }
-                rs = null;
-            }
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                }
-                stmt = null;
-            }
-
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (Exception e) {
-                }
-
-                connection = null;
-            }
-        }
         return ret;
     }
 
@@ -251,34 +196,6 @@ public class UserDAO {
             }
         } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                }
-                rs = null;
-            }
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                }
-                stmt = null;
-            }
-
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (Exception e) {
-                }
-
-                connection = null;
-            }
         }
 
         return bean;
