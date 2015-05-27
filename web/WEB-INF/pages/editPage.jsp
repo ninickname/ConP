@@ -8,8 +8,7 @@
 
     <%
         System.out.printf("rape");
-        User user = (User) (request.getSession().getAttribute("user"));
-
+        User user = (User) (request.getSession().getAttribute("userToEdit"));
     %>
 
     <!-- form for the editing -->

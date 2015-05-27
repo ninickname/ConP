@@ -22,8 +22,6 @@ public class LoginServlet extends HttpServlet {
             if (user.isValid()) {
                 HttpSession session = request.getSession(true);
 
-                session.setAttribute("user" , user);
-
                 String role = user.getRole();
                 if (role.equals("User")) {
                     response.sendRedirect("index.jsp?content=client/clientPage");
