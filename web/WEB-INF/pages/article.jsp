@@ -14,5 +14,5 @@
 <div class="well">
     <legend><%=article.getTitle()%></legend>
     <small><%=article.getCreated_by().getFirstName()%>|<%=article.getCreated_at()%></small>
-    <p<%=article.getContent()%>></p>
+    <p><%=article.getContent()%></p>
 </div>

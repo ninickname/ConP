@@ -103,7 +103,7 @@ public class User {
 
         if(pageName.equals("video_call"))
         {
-            if(role.equals("Employee") || role.equals("Admin") || role.equals("Manager") || role.equals("Client"))
+            if(role.equals("Employee") || role.equals("Admin") || role.equals("Manager") || role.equals("User"))
             {
                 return pageName;
             }
