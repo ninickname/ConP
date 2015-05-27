@@ -36,8 +36,6 @@ public class SessionOb {
         this.sessionId = null;
         this.created_at = null;
         this.aborted_at = null;
-
-        saveSession(this);
     }
 
     public SessionOb(User client, User employee, String sessionId, Boolean isActive, Date created_at, Date aborted_at) {
@@ -57,7 +55,6 @@ public class SessionOb {
         this.client = client;
         this.sessionId = sessionId;
 
-        saveSession(this);
     }
 
     public SessionOb(SessionOb sob) {
@@ -67,7 +64,6 @@ public class SessionOb {
         this.client = sob.getClient();
         this.sessionId = sob.getSessionId();
 
-        saveSession(this);
     }
 
     public static String getToken(String sessionId) {
@@ -191,6 +187,82 @@ public class SessionOb {
             stmt = connection.createStatement();
 
             String searchQuery = "select * from sessions";
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+
+                SessionOb sob = new SessionOb();
+
+                sob.setClientById(rs.getInt("client_id"));
+                sob.setEmployeeById(rs.getInt("employee_id"));
+                sob.setSessionId(rs.getString("sessionId"));
+                sob.setCreated_at(rs.getDate("created_at"));
+                sob.setAborted_at(rs.getDate("aborted_at"));
+
+                sessions.add(sob);
+            }
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+
+        return sessions;
+    }
+
+    /***
+     * Get Sessions
+     * @return List<SessionOb>
+     */
+    public static List<SessionOb> getNotAvticeSessions() {
+
+        List<SessionOb> sessions = new ArrayList<SessionOb>();
+        Statement stmt = null;
+
+        connection = ConnectionManager.getConnection();
+
+        try {
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select * from sessions where aborted_at IS NOT NULL";
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+
+                SessionOb sob = new SessionOb();
+
+                sob.setClientById(rs.getInt("client_id"));
+                sob.setEmployeeById(rs.getInt("employee_id"));
+                sob.setSessionId(rs.getString("sessionId"));
+                sob.setCreated_at(rs.getDate("created_at"));
+                sob.setAborted_at(rs.getDate("aborted_at"));
+
+                sessions.add(sob);
+            }
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+
+        return sessions;
+    }
+
+    /***
+     * Get Sessions
+     * @return List<SessionOb>
+     */
+    public static List<SessionOb> getOngoingSessions() {
+
+        List<SessionOb> sessions = new ArrayList<SessionOb>();
+        Statement stmt = null;
+
+        connection = ConnectionManager.getConnection();
+
+        try {
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select * from sessions where aborted_at IS NULL and employee_id IS NOT NULL";
 
             rs = stmt.executeQuery(searchQuery);
 
@@ -371,11 +443,11 @@ public class SessionOb {
      * Return average time of session in minutes.
      * @return long
      */
-    public static Long getAverageSessionTime() {
+    public static Date getAverageSessionTime() {
 
         Statement stmt = null;
 
-        Long avgTimeInMin = null;
+        Date avgTimeInMin = null;
 
         connection = ConnectionManager.getConnection();
 
@@ -383,12 +455,16 @@ public class SessionOb {
 
             stmt = connection.createStatement();
 
-            String searchQuery = "SELECT AVG(DATEDIFF(n, created_at, aborted_at)*1.0) AS avgDate" +
-                    "    FROM sessions";
+            String searchQuery = "SELECT AVG(TIME_TO_SEC(TIMEDIFF(sessions.aborted_at,sessions.created_at))) avgTime " +
+                    "FROM sessions " +
+                    "where sessions.aborted_at IS NOT NULL";
 
             rs = stmt.executeQuery(searchQuery);
 
-            avgTimeInMin = Long.valueOf(rs.toString());
+            if (rs.next()) {
+                System.out.println(rs.getInt("avgTime"));
+                avgTimeInMin = new Date(rs.getLong("avgTime")*1000L);
+            }
         } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         }

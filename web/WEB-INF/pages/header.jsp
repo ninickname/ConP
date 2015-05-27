@@ -45,9 +45,21 @@
             <%} if (currentUser != null && (currentUser.getRole().equals("Employee"))){%>
             <li class="${( param.content == 'callPool') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=callPool">Open sessions</a></li>
-            <%} if (currentUser != null && (currentUser.getRole().equals("Client"))){%>
+            <%} if (currentUser != null && (currentUser.getRole().equals("User"))){%>
             <li class="${( param.content == 'video_call') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=video_call">Open session</a></li>
+            <%} if (currentUser != null && (currentUser.getRole().equals("Admin")||currentUser.getRole().equals("Manager"))){%>
+            <li class="${( param.content == 'admin/adminPage') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=admin/adminPage">Administration</a></li>
+            <%} if (currentUser != null && (currentUser.getRole().equals("User"))){%>
+            <li class="${( param.content == 'client/clientPage') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=client/clientPage">Create session</a></li>
+            <%} if (currentUser != null && (currentUser.getRole().equals("Employee"))){%>
+            <li class="${( param.content == 'client/clientPage') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=employee/employeePage">My Employee page</a></li>
+            <%} if (currentUser != null && (currentUser.getRole().equals("Manager"))){%>
+            <li class="${( param.content == 'client/clientPage') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=manager/managerPage">My Manager page</a></li>
             <%}%>
 
         </ul>

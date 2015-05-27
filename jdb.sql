@@ -71,8 +71,8 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `client_id` int(11) DEFAULT NULL,
   `employee_id` int(11) DEFAULT NULL,
   `sessionId` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `aborted_at` date DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `aborted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `client_id` (`client_id`),
   KEY `employee_id` (`employee_id`)
@@ -83,8 +83,8 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `client_id`, `employee_id`, `sessionId`, `created_at`, `aborted_at`) VALUES
-  (1, 7, NULL, '2_MX40NTIzODM4Mn5-MTQzMjY3MzA3OTAxM35HSXJNaThsM0grODNYdkhKZG16alkyaVB-UH4', '2015-05-26 20:44:19', '2015-05-12'),
-  (2, 6, NULL, '1_MX40NTIzODM4Mn5-MTQzMjY3NDk2OTk4NX4yb2cwQWw3UUNoaU8rbG9sVWlBSVViQVN-UH4', '2015-05-26 21:15:49', '2015-05-19'),
+  (1, 7, NULL, '2_MX40NTIzODM4Mn5-MTQzMjY3MzA3OTAxM35HSXJNaThsM0grODNYdkhKZG16alkyaVB-UH4', '2015-05-26 20:44:19', '2015-05-26 20:50:19'),
+  (2, 6, NULL, '1_MX40NTIzODM4Mn5-MTQzMjY3NDk2OTk4NX4yb2cwQWw3UUNoaU8rbG9sVWlBSVViQVN-UH4', '2015-05-26 21:15:49', '2015-05-26 21:59:49'),
   (3, NULL, NULL, '2_MX40NTIzODM4Mn5-MTQzMjczOTU2NDYwMH4zdnNrcFZjZVM2VlVBK2I0NzlJVGtPM05-UH4', '2015-05-27 15:12:32', NULL),
   (4, NULL, NULL, '1_MX40NTIzODM4Mn5-MTQzMjczOTYxMDI4NH41cTNZS1RCdHdVSHRBZnVIckR1Y0pjRkh-UH4', '2015-05-27 15:13:17', NULL),
   (5, NULL, NULL, '1_MX40NTIzODM4Mn5-MTQzMjczOTcyMjA1N35lVWpJdGdBVmhEclhiZDdIZVdvaDV1akl-UH4', '2015-05-27 15:15:09', NULL);
