@@ -26,24 +26,34 @@
 
         <!-- Left nav -->
         <ul class="nav navbar-nav">
+            <% User currentUser =  (User)(session.getAttribute("user"));%>
             <li class="${( param.content == 'home') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-            <li class="${( param.content == 'service') ? 'active' : param.content}"><a href="#">Service</a></li>
-
             <li class="${( param.content == 'about') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=about">About</a></li>
+            <li class="${( param.content == 'articles') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=articles">Articles</a></li>
+
+            <% if (currentUser != null && (currentUser.getRole().equals("Admin")||currentUser.getRole().equals("Manager"))){ %>
             <li class="${( param.content == 'customization') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=customization">Customization</a></li>
+            <% } if (currentUser != null && (currentUser.getRole().equals("Admin")||currentUser.getRole().equals("Manager")||currentUser.getRole().equals("Employee"))){ %>
             <li class="${( param.content == 'midEdit') ? 'active' : param.content}"><a
-                    href="${pageContext.request.contextPath}/index.jsp?content=midEdit">edit</a></li>
+                    href="${pageContext.request.contextPath}/index.jsp?content=midEdit">Manage users</a></li>
+            <%} if (currentUser != null && (currentUser.getRole().equals("Employee"))){%>
+            <li class="${( param.content == 'callPool') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=callPool">Open sessions</a></li>
+            <%} if (currentUser != null && (currentUser.getRole().equals("Client"))){%>
+            <li class="${( param.content == 'video_call') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=video_call">Open session</a></li>
+            <%}%>
+
         </ul>
 
         <!-- Right nav -->
         <form name="logoutForm" method="POST" action="${pageContext.request.contextPath}/LogoutServlet">
             <ul class="nav navbar-nav navbar-right">
-                <% User currentUser = (User) (session.getAttribute("currentUser"));
-                    if (currentUser != null) {
-                %>
+                <% if (currentUser != null) {%>
                 <li>
                     <a>Welcome <%= currentUser.getFirstName() + " " + currentUser.getLastName() %>
                     </a>

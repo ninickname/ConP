@@ -3,6 +3,7 @@ package tokbox;
 import com.opentok.OpenTok;
 import com.opentok.Session;
 import com.opentok.exception.OpenTokException;
+import sitePackage.Configuration;
 import sitePackage.User;
 
 import javax.servlet.ServletException;
@@ -20,9 +21,9 @@ public class tokboxServlet extends HttpServlet {
         // TODO: get current user
         User currentUser = (User)(request.getSession().getAttribute("user"));
 
-        // inside a class or method...
-        int apiKey = 45238382; // YOUR API KEY
-        String apiSecret = "b94b18893ae6661e08d14729315543717472cc33";
+        int apiKey = Configuration.apiKey;
+        String apiSecret = Configuration.apiSecret;
+
         String sessionId = null;
         String token = null;
 

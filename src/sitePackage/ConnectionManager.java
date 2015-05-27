@@ -15,11 +15,11 @@ public class ConnectionManager {
         {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String url = "jdbc:mysql://localhost:3306/JDB";
+            String url = Configuration.connectionURL;
 
             try
             {
-                con = DriverManager.getConnection(url,"root","");
+                con = DriverManager.getConnection(url,Configuration.userName,Configuration.password);
             }
             catch (SQLException ex)
             {

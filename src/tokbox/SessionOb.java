@@ -258,7 +258,7 @@ public class SessionOb {
      */
     public static SessionOb getSessionById(int id) {
 
-        SessionOb session = null;
+        SessionOb session = new SessionOb();
         Statement stmt = null;
 
         connection = ConnectionManager.getConnection();
@@ -271,13 +271,16 @@ public class SessionOb {
 
             rs = stmt.executeQuery(searchQuery);
 
-            while (rs.next()) {
+            if (rs.next()) {
                 session.setClientById(rs.getInt("client_id"));
                 session.setEmployeeById(rs.getInt("employee_id"));
                 session.setSessionId(rs.getString("sessionId"));
                 session.setCreated_at(rs.getDate("created_at"));
                 session.setAborted_at(rs.getDate("aborted_at"));
 
+            }
+            else{
+                return null;
             }
         } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);

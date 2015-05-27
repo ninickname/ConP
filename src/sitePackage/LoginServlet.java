@@ -10,9 +10,7 @@ import java.util.ArrayList;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
-
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
             User user = new User();
@@ -23,16 +21,10 @@ public class LoginServlet extends HttpServlet {
 
             if (user.isValid()) {
                 HttpSession session = request.getSession(true);
-                session.setAttribute("currentUser", user);
 
-                // Check role of the user
+                session.setAttribute("user" , user);
+
                 String role = user.getRole();
-
-                System.out.println("request = [" + request + "], response = [" + response + "]");
-                System.out.println("role is " + role);
-                     session.setAttribute("user" , user);
-
-
                 if (role.equals("User")) {
                     response.sendRedirect("index.jsp?content=client/clientPage");
                 } else if (role.equals("Employee")) {

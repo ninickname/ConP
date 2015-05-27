@@ -92,4 +92,72 @@ public class User {
         valid = newValid;
     }
 
+    public static String checkPageRole(String pageName,String role)
+    {
+        String red = pageName;
+
+        if(pageName == null)
+        {
+            return "home";
+        }
+
+        if(pageName.equals("video_call"))
+        {
+            if(role.equals("Employee") || role.equals("Admin") || role.equals("Manager") || role.equals("Client"))
+            {
+                return pageName;
+            }
+            else{
+                return "login";
+            }
+        }
+
+        if(pageName.equals("callPool") || pageName.equals("editPage"))
+        {
+            if(role.equals("Employee") || role.equals("Admin") || role.equals("Manager"))
+            {
+                return pageName;
+            }
+            else{
+                return "login";
+            }
+        }
+
+        if(pageName.equals("employee/employeePage"))
+        {
+            if(role.equals("Employee"))
+            {
+                return pageName;
+            }
+            else{
+                return "login";
+            }
+        }
+
+        if(pageName.equals("employee/employeePage"))
+        {
+            if(role.equals("Employee"))
+            {
+                return pageName;
+            }
+            else{
+                return "login";
+            }
+        }
+
+        if(pageName.equals("customization"))
+        {
+            if(role.equals("Admin") || role.equals("Manager"))
+            {
+                return pageName;
+            }
+            else{
+                return "login";
+            }
+        }
+
+
+        return red;
+    }
+
 }

@@ -10,7 +10,7 @@
 <div class="row" ng-controller="loginController">
         <legend>Login Form:</legend>
         <div class="well">
-            <form method="post" action="LoginServlet" name="loginForm" class="form-horizontal">
+            <form method="get" action="LoginServlet" name="loginForm" class="form-horizontal">
                 <div class="form-group">
                     <label class="form-label col-md-2">User Name</label>
 
