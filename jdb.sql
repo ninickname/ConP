@@ -58,6 +58,35 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_name`, `password`, `
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
 
+
+--
+-- Table structure for table `articles`
+--
+
+CREATE TABLE IF NOT EXISTS `articles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text NOT NULL,
+  `content` text NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`id`, `title`, `content`, `created_by`, `created_at`) VALUES
+  (1, 'Article 1', 'Alternatively, you can leave the video call window without ending the video call. Tap the back button on your tablet to go one step back in Skype, or tap the home button to go to the desktop. This doesn’t end your video call, and it will appear in a small floating window in the right corner of your screen. Now you can tap the floating window to go back to your video call.', 6, '2015-05-27 14:06:43'),
+  (2, 'Article 2', 'Alternatively, you can leave the video call window without ending the video call. Tap the back button on your tablet to go one step back in Skype, or tap the home button to go to the desktop. This doesn’t end your video call, and it will appear in a small floating window in the right corner of your screen. Now you can tap the floating window to go back to your video call.', 6, '2015-05-27 14:09:01'),
+  (3, 'Article 3', 'Alternatively, you can leave the video call window without ending the video call. Tap the back button on your tablet to go one step back in Skype, or tap the home button to go to the desktop. This doesn’t end your video call, and it will appear in a small floating window in the right corner of your screen. Now you can tap the floating window to go back to your video call.', 6, '2015-05-27 14:09:22'),
+  (4, 'Article 4', 'Alternatively, you can leave the video call window without ending the video call. Tap the back button on your tablet to go one step back in Skype, or tap the home button to go to the desktop. This doesn’t end your video call, and it will appear in a small floating window in the right corner of your screen. Now you can tap the floating window to go back to your video call.', 6, '2015-05-27 14:32:23');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
