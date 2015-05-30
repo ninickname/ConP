@@ -5,10 +5,13 @@
       initial-scale=1" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <script src="/js/jquery-1.11.2.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/angular.min.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+
 
     <title>${param.title}</title>
 </head>

@@ -145,3 +145,59 @@ ADD CONSTRAINT `sessions_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `users` 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 30, 2015 at 11:21 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `jdb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article_rates`
+--
+
+CREATE TABLE IF NOT EXISTS `article_rates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rate` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `article_rates`
+--
+
+INSERT INTO `article_rates` (`id`, `article_id`, `user_id`, `rate`) VALUES
+  (1, 1, 99, 4),
+  (2, 2, 99, 4),
+  (3, 1, 99, 2),
+  (4, 3, 99, 4),
+  (5, 3, 99, 4),
+  (6, 4, 99, 5),
+  (7, 5, 99, 2),
+  (8, 6, 99, 3),
+  (9, 6, 99, 5);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -202,6 +202,62 @@ public class Article {
         return article;
     }
 
+    public static int getArticleRate(int id)
+    {
+        double sum = 0;
+        int counter = 0;
+
+        Statement stmt = null;
+
+        connection = ConnectionManager.getConnection();
+
+        try {
+
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select rate from article_rates where article_id = "+id;
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+                sum += rs.getInt("rate");
+                counter++;
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+        return counter != 0 ? (int) (sum / counter) : 0;
+    }
+
+    public static void addRate(int articleId,int rate,int userId)
+    {
+        Statement stmt = null;
+        PreparedStatement psmtp = null;
+
+        connection = ConnectionManager.getConnection();
+        try {
+            stmt = connection.createStatement();
+
+            String sqlQuery = "INSERT INTO article_rates (article_id,user_id,rate) VALUES (?,?,?)";
+
+            psmtp = connection.prepareStatement(sqlQuery);
+
+            psmtp.setInt(1, articleId);
+
+            psmtp.setInt(2, userId);
+
+            psmtp.setInt(3, rate);
+
+            psmtp.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Getters & setters
+
     public int getId() {
         return id;
     }
