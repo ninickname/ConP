@@ -10,6 +10,7 @@ public class Article {
     private int id;
     private String title;
     private String content;
+    private String img_url;
     private User created_by;
     private Date created_at;
 
@@ -20,14 +21,16 @@ public class Article {
         this.id = 0;
         this.title = null;
         this.content = null;
+        this.img_url = null;
         this.created_by = null;
         this.created_at = null;
     }
 
-    public Article(int id, String title, String content, User created_by, Date created_at) {
+    public Article(int id, String title, String content,String img_url, User created_by, Date created_at) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.img_url = img_url;
         this.created_by = created_by;
         this.created_at = created_at;
     }
@@ -45,15 +48,22 @@ public class Article {
         try {
             stmt = connection.createStatement();
 
-            String sqlQuery = "INSERT INTO articles (title,content,created_by) VALUES (?,?,?)";
+            String sqlQuery = "INSERT INTO articles (title,content,img_url,created_by) VALUES (?,?,?,?)";
 
             psmtp = connection.prepareStatement(sqlQuery);
 
             psmtp.setString(1, article.getTitle());
 
-            psmtp.setString(2, article.getTitle());
+            psmtp.setString(2, article.getContent());
 
-            psmtp.setInt(3, (int) article.getCreated_by().getId());
+            psmtp.setString(3, article.getImg_url());
+            if (article.getImg_url()!= null) {
+                psmtp.setString(3, article.getImg_url());
+            }
+            else {
+                psmtp.setNull(3,java.sql.Types.INTEGER);
+            }
+            psmtp.setInt(4, (int) article.getCreated_by().getId());
 
             psmtp.executeUpdate();
         } catch (SQLException e) {
@@ -141,6 +151,7 @@ public class Article {
                         rs.getInt("id"),
                         rs.getString("title"),
                         rs.getString("content"),
+                        rs.getString("img_url"),
                         UserDAO.getUserById(rs.getInt("created_by")),
                         rs.getDate("created_at"));
 
@@ -177,6 +188,7 @@ public class Article {
                 article.setId(rs.getInt("id"));
                 article.setTitle(rs.getString("title"));
                 article.setContent(rs.getString("content"));
+                article.setImg_url(rs.getString("img_url"));
                 article.setCreated_by(UserDAO.getUserById(rs.getInt("created_by")));
                 article.setCreated_at(rs.getDate("created_at"));
             }
@@ -189,6 +201,62 @@ public class Article {
 
         return article;
     }
+
+    public static int getArticleRate(int id)
+    {
+        double sum = 0;
+        int counter = 0;
+
+        Statement stmt = null;
+
+        connection = ConnectionManager.getConnection();
+
+        try {
+
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select rate from article_rates where article_id = "+id;
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+                sum += rs.getInt("rate");
+                counter++;
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+        return counter != 0 ? (int) (sum / counter) : 0;
+    }
+
+    public static void addRate(int articleId,int rate,int userId)
+    {
+        Statement stmt = null;
+        PreparedStatement psmtp = null;
+
+        connection = ConnectionManager.getConnection();
+        try {
+            stmt = connection.createStatement();
+
+            String sqlQuery = "INSERT INTO article_rates (article_id,user_id,rate) VALUES (?,?,?)";
+
+            psmtp = connection.prepareStatement(sqlQuery);
+
+            psmtp.setInt(1, articleId);
+
+            psmtp.setInt(2, userId);
+
+            psmtp.setInt(3, rate);
+
+            psmtp.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Getters & setters
 
     public int getId() {
         return id;
@@ -228,5 +296,13 @@ public class Article {
 
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
+    }
+
+    public String getImg_url() {
+        return img_url;
+    }
+
+    public void setImg_url(String img_url) {
+        this.img_url = img_url;
     }
 }

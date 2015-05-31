@@ -51,6 +51,8 @@ public class tokboxServlet extends HttpServlet {
 
         // client - sessionId - isActive
         SessionOb sessionp = new SessionOb(currentUser,null,sessionId);
+
+        SessionOb.saveSession(sessionp);
         response.sendRedirect("index.jsp?content=video_call&sessionId="+sessionId+"&token="+token);
     }
 

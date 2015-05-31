@@ -1,4 +1,4 @@
-var app = angular.module('conPApp', []);
+var app = angular.module('conPApp', ['ui.bootstrap']);
 
 // create angular controller
 app.controller('loginController', function($scope) {

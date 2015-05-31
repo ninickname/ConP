@@ -13,6 +13,7 @@
         <li><a href="index.jsp?content=video_call&sessionId=<%=sessionId%>&token=<%=token%>" class="btn btn-success">Client <%=(lsob.get(i)).getClient().getUserName()%> is waiting for you from <%=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format((lsob.get(i)).getCreated_at().getTime())%> </a></li>
         <%}%>
     </ul>
+    <% if(lsob.size() == 0){%><small class="text-danger">There are no open session for now!</small><%}%>
 </div>
 
 

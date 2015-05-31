@@ -71,8 +71,8 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `client_id` int(11) DEFAULT NULL,
   `employee_id` int(11) DEFAULT NULL,
   `sessionId` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `aborted_at` date DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `aborted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `client_id` (`client_id`),
   KEY `employee_id` (`employee_id`)
@@ -83,8 +83,8 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `client_id`, `employee_id`, `sessionId`, `created_at`, `aborted_at`) VALUES
-  (1, 7, NULL, '2_MX40NTIzODM4Mn5-MTQzMjY3MzA3OTAxM35HSXJNaThsM0grODNYdkhKZG16alkyaVB-UH4', '2015-05-26 20:44:19', '2015-05-12'),
-  (2, 6, NULL, '1_MX40NTIzODM4Mn5-MTQzMjY3NDk2OTk4NX4yb2cwQWw3UUNoaU8rbG9sVWlBSVViQVN-UH4', '2015-05-26 21:15:49', '2015-05-19'),
+  (1, 7, NULL, '2_MX40NTIzODM4Mn5-MTQzMjY3MzA3OTAxM35HSXJNaThsM0grODNYdkhKZG16alkyaVB-UH4', '2015-05-26 20:44:19', '2015-05-26 20:50:19'),
+  (2, 6, NULL, '1_MX40NTIzODM4Mn5-MTQzMjY3NDk2OTk4NX4yb2cwQWw3UUNoaU8rbG9sVWlBSVViQVN-UH4', '2015-05-26 21:15:49', '2015-05-26 21:59:49'),
   (3, NULL, NULL, '2_MX40NTIzODM4Mn5-MTQzMjczOTU2NDYwMH4zdnNrcFZjZVM2VlVBK2I0NzlJVGtPM05-UH4', '2015-05-27 15:12:32', NULL),
   (4, NULL, NULL, '1_MX40NTIzODM4Mn5-MTQzMjczOTYxMDI4NH41cTNZS1RCdHdVSHRBZnVIckR1Y0pjRkh-UH4', '2015-05-27 15:13:17', NULL),
   (5, NULL, NULL, '1_MX40NTIzODM4Mn5-MTQzMjczOTcyMjA1N35lVWpJdGdBVmhEclhiZDdIZVdvaDV1akl-UH4', '2015-05-27 15:15:09', NULL);
@@ -141,6 +141,62 @@ ADD CONSTRAINT `feedbacks_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `session
 ALTER TABLE `sessions`
 ADD CONSTRAINT `sessions_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `sessions_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 30, 2015 at 11:21 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `jdb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article_rates`
+--
+
+CREATE TABLE IF NOT EXISTS `article_rates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rate` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `article_rates`
+--
+
+INSERT INTO `article_rates` (`id`, `article_id`, `user_id`, `rate`) VALUES
+  (1, 1, 99, 4),
+  (2, 2, 99, 4),
+  (3, 1, 99, 2),
+  (4, 3, 99, 4),
+  (5, 3, 99, 4),
+  (6, 4, 99, 5),
+  (7, 5, 99, 2),
+  (8, 6, 99, 3),
+  (9, 6, 99, 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static sitePackage.ConnectionManager.getConnection;
 
 public class UserDAO {
     public static String[] Roles = {"Admin", "User", "Manager", "Employee" , "Unregistered"};
@@ -24,7 +25,7 @@ public class UserDAO {
 
         try {
             //connect to DB
-            connection = ConnectionManager.getConnection();
+            connection = getConnection();
             stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
@@ -144,7 +145,7 @@ public class UserDAO {
         //String username = bean.getUserName();
 
         String searchQuery =
-                 "select * from users where user_name='" + user.getId() + "'";
+                 "select * from users where id='" + user.getId() + "'";
         try {
             //connect to DB
             connection = ConnectionManager.getConnection();
@@ -157,7 +158,6 @@ public class UserDAO {
 
             //if user exists set the isValid variable to true
             while (more) {
-
                 String sqlQuery = "UPDATE `users` SET role='User' WHERE id ='" + user.getId() + "' ";
                 System.out.println(sqlQuery);
                 psmtp = connection.prepareStatement(sqlQuery);
@@ -166,10 +166,9 @@ public class UserDAO {
                 more = rs.next();
             }
 
-            return true;
-
         } catch (Exception ex) {
             System.out.println(" Exception has occurred! " + ex);
+            return false;
         }
 
         return true;
@@ -190,7 +189,7 @@ public class UserDAO {
         String sqlQuery = "select * from users where user_name='" + user.getUserName() + "'";
 
         //connect to DB
-        connection = ConnectionManager.getConnection();
+        connection = getConnection();
         try {
             stmt = connection.createStatement();
 
@@ -250,7 +249,7 @@ public class UserDAO {
 
         try {
             //connect to DB
-            connection = ConnectionManager.getConnection();
+            connection = getConnection();
             stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
@@ -283,7 +282,7 @@ public class UserDAO {
 
         try {
             //connect to DB
-            connection = ConnectionManager.getConnection();
+            connection = getConnection();
             stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
@@ -302,8 +301,6 @@ public class UserDAO {
                 bean.setRole(rs.getString("role"));
                 bean.setUserName(rs.getString("user_name"));
                 bean.setPassword(rs.getString("password"));
-
-                System.out.println("now we will edit  " + bean.getFirstName());
             }
         } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
@@ -332,7 +329,7 @@ public class UserDAO {
 
 
         //connect to DB
-        connection = ConnectionManager.getConnection();
+        connection = getConnection();
         try {
 
             System.out.println("before querry");
@@ -363,4 +360,218 @@ public class UserDAO {
 
         return true;
     }
+
+    public static ArrayList<User> getUsers()
+    {
+        ArrayList<User> users = new ArrayList<User>();
+        Statement stmt = null;
+
+        connection = getConnection();
+
+        try {
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select * from users";
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+
+                User sob = new User();
+
+                sob.setSalt(rs.getString("salt"));
+                sob.setFirstName(rs.getString("first_name"));
+                sob.setLastName(rs.getString("last_name"));
+                sob.setId(rs.getLong("id"));
+                sob.setEmail(rs.getString("email"));
+                sob.setRole(rs.getString("role"));
+
+                users.add(sob);
+            }
+        } catch (Exception ex) {
+            System.out.println("Failed: An Exception has occurred! " + ex);
+        }
+
+        return users;
+    }
+
+    public static ArrayList<User> getApprovedClients()
+    {
+        ArrayList<User> users = new ArrayList<User>();
+        Statement stmt = null;
+
+        connection = getConnection();
+
+        try {
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select * from users where role='User'";
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+
+                User sob = new User();
+
+                sob.setSalt(rs.getString("salt"));
+                sob.setFirstName(rs.getString("first_name"));
+                sob.setLastName(rs.getString("last_name"));
+                sob.setId(rs.getLong("id"));
+                sob.setEmail(rs.getString("email"));
+                sob.setRole(rs.getString("role"));
+
+                users.add(sob);
+            }
+        } catch (Exception ex) {
+            System.out.println("Failed: An Exception has occurred! " + ex);
+        }
+
+        return users;
+    }
+
+    public static ArrayList<User> getNotApprovedClients()
+    {
+        ArrayList<User> users = new ArrayList<User>();
+        Statement stmt = null;
+
+        connection = getConnection();
+
+        try {
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select * from users where role='Unregistered'";
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+
+                User sob = new User();
+
+                sob.setSalt(rs.getString("salt"));
+                sob.setFirstName(rs.getString("first_name"));
+                sob.setLastName(rs.getString("last_name"));
+                sob.setId(rs.getLong("id"));
+                sob.setEmail(rs.getString("email"));
+                sob.setRole(rs.getString("role"));
+
+                users.add(sob);
+            }
+        } catch (Exception ex) {
+            System.out.println("Failed: An Exception has occurred! " + ex);
+        }
+
+        return users;
+    }
+
+    public static ArrayList<User> getEmployees()
+    {
+        ArrayList<User> users = new ArrayList<User>();
+        Statement stmt = null;
+
+        connection = getConnection();
+
+        try {
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select * from users where role='Employee'";
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+
+                User sob = new User();
+
+                sob.setSalt(rs.getString("salt"));
+                sob.setFirstName(rs.getString("first_name"));
+                sob.setLastName(rs.getString("last_name"));
+                sob.setId(rs.getLong("id"));
+                sob.setEmail(rs.getString("email"));
+                sob.setRole(rs.getString("role"));
+
+                users.add(sob);
+            }
+        } catch (Exception ex) {
+            System.out.println("Failed: An Exception has occurred! " + ex);
+        }
+
+        return users;
+    }
+
+    public static ArrayList<User> getManagers()
+    {
+        ArrayList<User> users = new ArrayList<User>();
+        Statement stmt = null;
+
+        connection = getConnection();
+
+        try {
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select * from users where role='Manager'";
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+
+                User sob = new User();
+
+                sob.setSalt(rs.getString("salt"));
+                sob.setFirstName(rs.getString("first_name"));
+                sob.setLastName(rs.getString("last_name"));
+                sob.setId(rs.getLong("id"));
+                sob.setEmail(rs.getString("email"));
+                sob.setRole(rs.getString("role"));
+
+                users.add(sob);
+            }
+        } catch (Exception ex) {
+            System.out.println("Failed: An Exception has occurred! " + ex);
+        }
+
+        return users;
+    }
+
+    public static ArrayList<User> getAdmins()
+    {
+        ArrayList<User> users = new ArrayList<User>();
+        Statement stmt = null;
+
+        connection = getConnection();
+
+        try {
+
+            stmt = connection.createStatement();
+
+            String searchQuery = "select * from users where role='Admin'";
+
+            rs = stmt.executeQuery(searchQuery);
+
+            while (rs.next()) {
+
+                User sob = new User();
+
+                sob.setSalt(rs.getString("salt"));
+                sob.setFirstName(rs.getString("first_name"));
+                sob.setLastName(rs.getString("last_name"));
+                sob.setId(rs.getLong("id"));
+                sob.setEmail(rs.getString("email"));
+                sob.setRole(rs.getString("role"));
+
+                users.add(sob);
+            }
+        } catch (Exception ex) {
+            System.out.println("Failed: An Exception has occurred! " + ex);
+        }
+
+        return users;
+    }
+
+    // TODO: top rated employees (get top 5)
+
+
 }

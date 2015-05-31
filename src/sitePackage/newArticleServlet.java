@@ -16,6 +16,7 @@ public class newArticleServlet extends HttpServlet {
         Article article = new Article();
         article.setTitle(request.getParameter("title"));
         article.setContent(request.getParameter("content"));
+        article.setImg_url(request.getParameter("img_url"));
         article.setCreated_by(currentUser);
 
         Article.saveArticle(article);
