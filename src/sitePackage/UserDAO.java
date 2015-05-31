@@ -3,6 +3,8 @@ package sitePackage;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class UserDAO {
     public static String[] Roles = {"Admin", "User", "Manager", "Employee" , "Unregistered"};
@@ -41,7 +43,6 @@ public class UserDAO {
 
 
                 if (hashed.contentEquals(rs.getString("password"))) {
-
                     bean.setSalt(rs.getString("salt"));
                     bean.setFirstName(rs.getString("first_name"));
                     bean.setLastName(rs.getString("last_name"));
@@ -61,9 +62,119 @@ public class UserDAO {
         }
 
         return bean;
+        }
+
+
+    public static List<User> ListClients() {
+
+        //preparing some objects for connection
+        Statement stmt = null;
+
+        //String username = bean.getUserName();
+
+        String searchQuery =
+                "select * from users where role='Unregistered'";
+        List<User> users = new ArrayList<User>();
+        try {
+            //connect to DB
+            connection = ConnectionManager.getConnection();
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            boolean more = rs.next();
+
+            // if user does not exist set the isValid variable to false
+
+
+            //if user exists set the isValid variable to true
+            while (more) {
+                User user = new User();
+                user.setLastName(rs.getString("last_name"));
+                user.setId(rs.getLong("id"));
+                user.setEmail(rs.getString("email"));
+                user.setRole(rs.getString("role"));
+                user.setFirstName(rs.getString("first_name"));
+                user.setValid(true);
+                users.add(user);
+
+                more = rs.next();
+            }
+
+            return users;
+
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
+
+        //some exception handling
+        finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                }
+
+                connection = null;
+            }
+        }
+
+        return users;
 
     }
+    public static boolean Validclient(User user) {
 
+        //preparing some objects for connection
+        Statement stmt = null;
+        PreparedStatement psmtp = null;
+        //String username = bean.getUserName();
+
+        String searchQuery =
+                 "select * from users where user_name='" + user.getId() + "'";
+        try {
+            //connect to DB
+            connection = ConnectionManager.getConnection();
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            boolean more = true;
+
+            // if user does not exist set the isValid variable to false
+
+
+            //if user exists set the isValid variable to true
+            while (more) {
+
+                String sqlQuery = "UPDATE `users` SET role='User' WHERE id ='" + user.getId() + "' ";
+                System.out.println(sqlQuery);
+                psmtp = connection.prepareStatement(sqlQuery);
+                psmtp.executeUpdate(sqlQuery);
+                user.setValid(true);
+                more = rs.next();
+            }
+
+            return true;
+
+        } catch (Exception ex) {
+            System.out.println(" Exception has occurred! " + ex);
+        }
+
+        return true;
+
+    }
     public static boolean register(User user) {
 
         String salt = BCrypt.gensalt();
