@@ -62,6 +62,7 @@ public class UserDAO {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         }
 
+
         return bean;
         }
 

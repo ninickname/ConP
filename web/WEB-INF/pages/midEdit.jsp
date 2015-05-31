@@ -13,7 +13,7 @@
                 <select name="id" class="form-control ">
                     <%
 
-                        User user = (User) (session.getAttribute("currentUser"));
+                        User user = (User) (session.getAttribute("user"));
                       try{
                         System.out.println(user.getRole());
 
