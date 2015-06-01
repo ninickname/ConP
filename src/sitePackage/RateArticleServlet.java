@@ -13,6 +13,11 @@ import java.io.IOException;
 public class RateArticleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        User currentUser = (User)(request.getSession().getAttribute("user"));
+
+        if(currentUser==null)
+            response.sendRedirect("index.jsp");
+
         HttpSession session = request.getSession(true);
         User user = (User) request.getSession().getAttribute("user");
 

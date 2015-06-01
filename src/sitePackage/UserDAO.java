@@ -235,6 +235,7 @@ public class UserDAO {
         String roles = null;
 
         System.out.println("USER DAO ROLE " + role);
+
         if (role.equals("Employee")) {
             roles = "'User' or role = 'Unregistered'";
         } else if (role.equals("Manager")) {

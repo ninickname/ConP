@@ -15,6 +15,8 @@ import java.sql.Statement;
 public class ApproveUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+
         User user = new User();
         user.setId(new Long(request.getParameter("text")));
         boolean check=UserDAO.Validclient(user);
@@ -24,11 +26,16 @@ public class ApproveUserServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User currentUser = (User)(request.getSession().getAttribute("user"));
+
+        if(currentUser==null)
+            response.sendRedirect("index.jsp");
+
+        else if(currentUser.getRole().equals("User") ||currentUser.getRole().equals("Unregistered"))
+            response.sendRedirect("index.jsp");
 
         request.setAttribute("UsersList", UserDAO.ListClients());
         getServletContext().getRequestDispatcher("/WEB-INF/pages/list_clients.jsp").forward(request, response);
-
-
     }
 
 }
