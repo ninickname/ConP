@@ -14,7 +14,9 @@
 
 
     <title>${param.title}</title>
+
 </head>
+<%--"body_css"--%>
 <body ng-app="conPApp" id="body_css">
 <!-- Static navbar -->
 <div class="navbar navbar-default" role="navigation">

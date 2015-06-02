@@ -13,6 +13,7 @@
         // Set body css style
         $('body').css(json.body_css);
 
+
     });
 </script>
 </body>
