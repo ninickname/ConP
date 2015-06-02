@@ -10,7 +10,7 @@
                     for(int i=0 ; i< UsersList.size();i++){%>
                     <% User user = new User();%>
                     <% user = UsersList.get(i);%>
-                <td><%=user.getId()%></td>
+
                 <div class="controls">
                     <form class="form-horizontal" action='ApproveUserServlet' method="POST" name="ListForm" >
                         <input type="text" value="<%=user.getId()%>" name='text' id='text' hidden="hidden">
