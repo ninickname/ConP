@@ -1,4 +1,7 @@
-package sitePackage;
+package Article;
+
+import Article.Article;
+import sitePackage.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

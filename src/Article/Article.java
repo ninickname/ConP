@@ -1,4 +1,8 @@
-package sitePackage;
+package Article;
+
+import sitePackage.ConnectionManager;
+import sitePackage.User;
+import sitePackage.UserDAO;
 
 import java.sql.*;
 import java.util.ArrayList;

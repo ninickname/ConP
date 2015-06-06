@@ -1,4 +1,4 @@
-package sitePackage;
+package Feedback;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,17 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "DeleteArticleServlet", urlPatterns = {"/DeleteArticleServlet"})
-public class DeleteArticleServlet extends HttpServlet {
+
+@WebServlet(name = "EditFeedbackServlet", urlPatterns = {"/EditFeedbackServlet"})
+public class EditFeedbackServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         if (request.getSession().getAttribute("user") == null){
             response.sendRedirect("index.jsp");
         }
-        Article article = Article.getArticleById(Integer.parseInt(request.getParameter("article_idd")));
+        Feedback feedback = Feedback.getFeedbackById(Integer.parseInt(request.getParameter("id")));
 
-        Article.deleteArticle(article);
+        Feedback.updateFeedback(feedback);
 
-        response.sendRedirect("index.jsp?content=articles");
+        response.sendRedirect("index.jsp?content=feedbacks");
     }
 }

@@ -1,4 +1,7 @@
-package sitePackage;
+package Article;
+
+import Article.Article;
+import sitePackage.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,9 +26,9 @@ public class RateArticleServlet extends HttpServlet {
 
         System.out.println(request.getParameterNames().toString());
         Article.addRate(Integer.parseInt(
-                request.getParameter("article_id")),
+                        request.getParameter("article_id")),
                 Integer.parseInt(request.getParameter("rate")),
-                (int)user.getId());
+                (int) user.getId());
 
         String forwardTo= request.getParameter("forwardTo");
         RequestDispatcher view = getServletContext().getRequestDispatcher(forwardTo);
