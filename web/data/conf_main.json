@@ -1,1 +1,37 @@
-{"company_name":"ConP","body_css":{"background-color":"black"},"navbar_css":{"background-color":"red"},"team":[{"role":"","img_link":"","name":"Andrey Pospelov"},{"role":"","img_link":"","name":"Nick Yashaev"},{"role":"","img_link":"","name":"Maxim Dunavicher"},{"role":"","img_link":"","name":"Vova Feldstein"},{"role":"","img_link":"","name":"Yuval Hen"},{"role":"","img_link":"","name":"Vital Yuchter"}]}
+{
+  "company_name": "ConP",
+  "body_css": {"background-color": "white"},
+  "navbar_css": {"background-color": "red"},
+  "team": [
+    {
+      "role": "",
+      "img_link": "",
+      "name": "Andrey Pospelov"
+    },
+    {
+      "role": "",
+      "img_link": "",
+      "name": "Nick Yashaev"
+    },
+    {
+      "role": "",
+      "img_link": "",
+      "name": "Maxim Dunavicher"
+    },
+    {
+      "role": "",
+      "img_link": "",
+      "name": "Vova Feldstein"
+    },
+    {
+      "role": "",
+      "img_link": "",
+      "name": "Yuval Hen"
+    },
+    {
+      "role": "",
+      "img_link": "",
+      "name": "Vital Yuchter"
+    }
+  ]
+}
