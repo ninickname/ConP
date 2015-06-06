@@ -103,7 +103,7 @@ public class User {
 
         if(pageName.equals("video_call"))
         {
-            if(role.equals("Employee") || role.equals("Admin") || role.equals("Manager") || role.equals("User"))
+            if(role.equals("Employee") /*|| role.equals("Admin") || role.equals("Manager")*/ || role.equals("User"))
             {
                 return pageName;
             }
@@ -134,9 +134,19 @@ public class User {
             }
         }
 
-        if(pageName.equals("employee/employeePage"))
+        if(pageName.equals("manager/managerPage"))
         {
-            if(role.equals("Employee"))
+            if(role.equals("Manager"))
+            {
+                return pageName;
+            }
+            else{
+                return "login";
+            }
+        }
+        if(pageName.equals("admin/adminPage"))
+        {
+            if(role.equals("Admin"))
             {
                 return pageName;
             }
@@ -157,7 +167,7 @@ public class User {
         }
 
 
-        return red;
+        return pageName;
     }
 
 }

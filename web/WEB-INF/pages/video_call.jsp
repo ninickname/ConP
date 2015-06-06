@@ -3,6 +3,7 @@
 <%@ page import="java.util.Date" %>
 <script src="//static.opentok.com/v2/js/opentok.min.js"></script>
 <div class="well" id="video_call">
+
     <script type="text/javascript">
 
         var cw = $('#videoCaller').width();
@@ -59,6 +60,7 @@
             $("#start_session_btn").addClass("loading");
 
             videoSession.unpublish(publisher);
+
         }
 
     </script>

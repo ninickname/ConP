@@ -20,6 +20,7 @@ public class videoSessionServlet extends HttpServlet {
         ses.setAborted_at(new Date());
         SessionOb.saveSession(ses);
 
+
         response.sendRedirect("index.jsp?content=createFeedback&session_id="+ses.getId()+"");
     }
 }

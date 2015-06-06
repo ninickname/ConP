@@ -3,6 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+
+    <error-page>
+        <error-code>403</error-code>
+        <location> /AdminServlet</location>
+    </error-page>
+
     <error-page>
         <error-code>404</error-code>
         <location>/index.jsp</location>
@@ -12,7 +19,6 @@
         <error-code>500</error-code>
         <location>/LoginServlet</location>
     </error-page>
-
 
     <security-constraint>
         <web-resource-collection>
@@ -34,4 +40,11 @@
     <login-config>
         <auth-method>BASIC</auth-method>
     </login-config>
+
+    <session-config>
+        <session-timeout>
+            360
+        </session-timeout>
+    </session-config>
+
 </web-app>

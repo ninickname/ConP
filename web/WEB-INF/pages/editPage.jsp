@@ -7,7 +7,6 @@
 
 
     <%
-        System.out.printf("rape");
         User user = (User) (request.getSession().getAttribute("userToEdit"));
     %>
 
