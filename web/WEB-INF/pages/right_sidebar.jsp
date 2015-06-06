@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" import="sitePackage.Article,sitePackage.Article.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="Article.Article,Article.Article.*" %>
 <div class="well">
     <legend>News and sales</legend>
     <%

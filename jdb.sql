@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2015 at 05:25 PM
+-- Generation Time: Jun 06, 2015 at 08:34 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -30,20 +30,52 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `content` text NOT NULL,
+  `img_url` text,
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `title`, `content`, `created_by`, `created_at`) VALUES
-  (1, 'Hello world', 'Hello world', 6, '2015-05-27 14:06:43'),
-  (2, 'Article 2', 'Article 2', 6, '2015-05-27 14:09:01'),
-  (3, 'I wanted to created special article', 'I wanted to created special article', 6, '2015-05-27 14:09:22'),
-  (4, '123', '123', 6, '2015-05-27 14:32:23');
+INSERT INTO `articles` (`id`, `title`, `content`, `img_url`, `created_by`, `created_at`) VALUES
+  (2, 'Article 2', '"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"', NULL, 6, '2015-05-27 14:09:01'),
+  (3, 'I wanted to created special article', '"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"', NULL, 6, '2015-05-27 14:09:22'),
+  (4, '123', '"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"', NULL, 6, '2015-05-27 14:32:23'),
+  (6, 'Andrey the king', 'Andery is awsome Andery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsomeAndery is awsome', '/img/andrey.jpg', 99, '2015-05-27 22:39:33'),
+  (9, 'Hello world', '"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"', '/img/andrey.jpg', 99, '2015-06-06 15:26:24'),
+  (10, 'Hello world 1', '"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"', '/img/andrey.jpg', 99, '2015-06-06 15:26:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article_rates`
+--
+
+CREATE TABLE IF NOT EXISTS `article_rates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rate` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `article_rates`
+--
+
+INSERT INTO `article_rates` (`id`, `article_id`, `user_id`, `rate`) VALUES
+  (1, 1, 99, 4),
+  (2, 2, 99, 4),
+  (3, 1, 99, 2),
+  (4, 3, 99, 4),
+  (5, 3, 99, 4),
+  (6, 4, 99, 5),
+  (7, 5, 99, 2),
+  (8, 6, 99, 3),
+  (9, 6, 99, 5);
 
 -- --------------------------------------------------------
 
@@ -55,6 +87,8 @@ CREATE TABLE IF NOT EXISTS `feedbacks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `content` text NOT NULL,
+  `written_on` int(11) NOT NULL,
+  `created_by` int(11) NOT NULL,
   `session_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `session_id` (`session_id`)
@@ -76,18 +110,19 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   PRIMARY KEY (`id`),
   KEY `client_id` (`client_id`),
   KEY `employee_id` (`employee_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
 
 --
 -- Dumping data for table `sessions`
 --
 
 INSERT INTO `sessions` (`id`, `client_id`, `employee_id`, `sessionId`, `created_at`, `aborted_at`) VALUES
-  (1, 7, NULL, '2_MX40NTIzODM4Mn5-MTQzMjY3MzA3OTAxM35HSXJNaThsM0grODNYdkhKZG16alkyaVB-UH4', '2015-05-26 20:44:19', '2015-05-26 20:50:19'),
-  (2, 6, NULL, '1_MX40NTIzODM4Mn5-MTQzMjY3NDk2OTk4NX4yb2cwQWw3UUNoaU8rbG9sVWlBSVViQVN-UH4', '2015-05-26 21:15:49', '2015-05-26 21:59:49'),
-  (3, NULL, NULL, '2_MX40NTIzODM4Mn5-MTQzMjczOTU2NDYwMH4zdnNrcFZjZVM2VlVBK2I0NzlJVGtPM05-UH4', '2015-05-27 15:12:32', NULL),
-  (4, NULL, NULL, '1_MX40NTIzODM4Mn5-MTQzMjczOTYxMDI4NH41cTNZS1RCdHdVSHRBZnVIckR1Y0pjRkh-UH4', '2015-05-27 15:13:17', NULL),
-  (5, NULL, NULL, '1_MX40NTIzODM4Mn5-MTQzMjczOTcyMjA1N35lVWpJdGdBVmhEclhiZDdIZVdvaDV1akl-UH4', '2015-05-27 15:15:09', NULL);
+  (30, 1233, NULL, '2_MX40NTIzODM4Mn5-MTQzMzYxNTEzNTk3N35uM1F1ZSthT1FPbE9nSjdjSm9JZWNleEF-UH4', '2015-06-06 21:25:22', NULL),
+  (31, 1233, 0, '2_MX40NTIzODM4Mn5-MTQzMzYxNTEzNTk3N35uM1F1ZSthT1FPbE9nSjdjSm9JZWNleEF-UH4', '2015-06-06 21:25:22', NULL),
+  (32, 1233, 0, '2_MX40NTIzODM4Mn5-MTQzMzYxNTEzNTk3N35uM1F1ZSthT1FPbE9nSjdjSm9JZWNleEF-UH4', '2015-06-06 21:25:31', NULL),
+  (33, 1233, 0, '2_MX40NTIzODM4Mn5-MTQzMzYxNTEzNTk3N35uM1F1ZSthT1FPbE9nSjdjSm9JZWNleEF-UH4', '2015-06-06 21:25:38', NULL),
+  (34, 1233, 0, '2_MX40NTIzODM4Mn5-MTQzMzYxNTEzNTk3N35uM1F1ZSthT1FPbE9nSjdjSm9JZWNleEF-UH4', '2015-06-06 21:32:05', NULL),
+  (35, 1233, 0, '2_MX40NTIzODM4Mn5-MTQzMzYxNTEzNTk3N35uM1F1ZSthT1FPbE9nSjdjSm9JZWNleEF-UH4', '2015-06-06 21:32:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -134,69 +169,6 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_name`, `password`, `
 --
 ALTER TABLE `feedbacks`
 ADD CONSTRAINT `feedbacks_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
--- Constraints for table `sessions`
---
-ALTER TABLE `sessions`
-ADD CONSTRAINT `sessions_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-ADD CONSTRAINT `sessions_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
--- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: May 30, 2015 at 11:21 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `jdb`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `article_rates`
---
-
-CREATE TABLE IF NOT EXISTS `article_rates` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `article_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `rate` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
-
---
--- Dumping data for table `article_rates`
---
-
-INSERT INTO `article_rates` (`id`, `article_id`, `user_id`, `rate`) VALUES
-  (1, 1, 99, 4),
-  (2, 2, 99, 4),
-  (3, 1, 99, 2),
-  (4, 3, 99, 4),
-  (5, 3, 99, 4),
-  (6, 4, 99, 5),
-  (7, 5, 99, 2),
-  (8, 6, 99, 3),
-  (9, 6, 99, 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

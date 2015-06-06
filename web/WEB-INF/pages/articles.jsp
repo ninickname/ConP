@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" import="sitePackage.Article" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="Article.Article" %>
 <%@ page import="sitePackage.User" %>
 <div class="well">
     <div class="row clearfix">

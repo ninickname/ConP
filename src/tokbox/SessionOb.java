@@ -38,14 +38,12 @@ public class SessionOb {
         this.aborted_at = null;
     }
 
-    public SessionOb(User client, User employee, String sessionId, Boolean isActive, Date created_at, Date aborted_at) {
+    public SessionOb(User client, User employee, String sessionId, Date created_at, Date aborted_at) {
         this.employee = employee;
         this.created_at = created_at;
         this.aborted_at = aborted_at;
         this.client = client;
         this.sessionId = sessionId;
-
-        saveSession(this);
     }
 
     public SessionOb(User client, User employee, String sessionId) {
@@ -86,7 +84,7 @@ public class SessionOb {
      * Save Session
      * @param sob
      */
-    public static void saveSession(SessionOb sob) {
+    public static SessionOb saveSession(SessionOb sob) {
         Statement stmt = null;
         PreparedStatement psmtp = null;
 
@@ -96,10 +94,10 @@ public class SessionOb {
 
             String sqlQuery = "INSERT INTO sessions (client_id,employee_id,sessionId) VALUES (?,?,?)";
 
-            psmtp = connection.prepareStatement(sqlQuery);
+            psmtp = connection.prepareStatement(sqlQuery,PreparedStatement.RETURN_GENERATED_KEYS);
 
 
-            if (sob.getEmployee()!= null) {
+            if (sob.getClient()!= null) {
                 psmtp.setInt(1, (int) sob.getClient().getId());
             }
             else {
@@ -115,9 +113,18 @@ public class SessionOb {
             psmtp.setString(3, sob.getSessionId());
 
             psmtp.executeUpdate();
+
+            ResultSet rs = psmtp.getGeneratedKeys();
+
+            if (rs.next()){
+               return SessionOb.getSessionById(rs.getInt(1));
+            }
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return sob;
     }
 
     // update session
@@ -193,7 +200,7 @@ public class SessionOb {
             while (rs.next()) {
 
                 SessionOb sob = new SessionOb();
-
+                sob.setId(rs.getLong("id"));
                 sob.setClientById(rs.getInt("client_id"));
                 sob.setEmployeeById(rs.getInt("employee_id"));
                 sob.setSessionId(rs.getString("sessionId"));
@@ -231,7 +238,7 @@ public class SessionOb {
             while (rs.next()) {
 
                 SessionOb sob = new SessionOb();
-
+                sob.setId(rs.getLong("id"));
                 sob.setClientById(rs.getInt("client_id"));
                 sob.setEmployeeById(rs.getInt("employee_id"));
                 sob.setSessionId(rs.getString("sessionId"));
@@ -269,7 +276,7 @@ public class SessionOb {
             while (rs.next()) {
 
                 SessionOb sob = new SessionOb();
-
+                sob.setId(rs.getLong("id"));
                 sob.setClientById(rs.getInt("client_id"));
                 sob.setEmployeeById(rs.getInt("employee_id"));
                 sob.setSessionId(rs.getString("sessionId"));
@@ -307,7 +314,7 @@ public class SessionOb {
             while (rs.next()) {
 
                 SessionOb sob = new SessionOb();
-
+                sob.setId(rs.getLong("id"));
                 sob.setClientById(rs.getInt("client_id"));
                 sob.setEmployeeById(rs.getInt("employee_id"));
                 sob.setSessionId(rs.getString("sessionId"));
@@ -344,6 +351,7 @@ public class SessionOb {
             rs = stmt.executeQuery(searchQuery);
 
             if (rs.next()) {
+                session.setId(rs.getLong("id"));
                 session.setClientById(rs.getInt("client_id"));
                 session.setEmployeeById(rs.getInt("employee_id"));
                 session.setSessionId(rs.getString("sessionId"));
@@ -384,7 +392,7 @@ public class SessionOb {
             while (rs.next()) {
 
                 SessionOb sob = new SessionOb();
-
+                sob.setId(rs.getLong("id"));
                 sob.setClientById(rs.getInt("client_id"));
                 sob.setEmployeeById(rs.getInt("employee_id"));
                 sob.setSessionId(rs.getString("sessionId"));
@@ -423,7 +431,7 @@ public class SessionOb {
             while (rs.next()) {
 
                 SessionOb sob = new SessionOb();
-
+                sob.setId(rs.getLong("id"));
                 sob.setClientById(rs.getInt("client_id"));
                 sob.setEmployeeById(rs.getInt("employee_id"));
                 sob.setSessionId(rs.getString("sessionId"));
