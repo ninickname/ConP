@@ -44,9 +44,11 @@
             <li class="${( param.content == 'articles') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=articles">Articles</a></li>
 
+            <% if (currentUser != null && (currentUser.getRole().equals("Admin")||currentUser.getRole().equals("Manager"))){ %>
+            <li class="${( param.content == 'feedbacks') ? 'active' : param.content}"><a
+                    href="${pageContext.request.contextPath}/index.jsp?content=feedbacks">Manage feedback</a></li>
+            <% } if (currentUser != null && (currentUser.getRole().equals("Admin")||currentUser.getRole().equals("Manager"))){ %>
 
-            <%--admin and manager only --%>
-            <% if (currentUser != null && (currentUser.getRole().equals("Admin") || currentUser.getRole().equals("Manager"))) { %>
             <li class="${( param.content == 'customization') ? 'active' : param.content}"><a
                     href="${pageContext.request.contextPath}/index.jsp?content=customization">Customization</a></li>
             <% }

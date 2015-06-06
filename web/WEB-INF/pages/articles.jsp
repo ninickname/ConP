@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" import="sitePackage.Article" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="Article.Article" %>
 <%@ page import="sitePackage.User" %>
 <div class="well">
     <div class="row clearfix">
@@ -39,24 +39,37 @@
                                 <%=articleItem.getTitle()%>
                             </a>
                             </label><br>
-                            <form id="rateForm<%=articleItem.getId()%>" action="RateArticleServlet"  method="POST" ng-submit="submit()">
-                                <rating ng-init="rate<%=articleItem.getId()%>=<%=Article.getArticleRate(articleItem.getId())%>" ng-model="rate<%=articleItem.getId()%>"
-                                        max="5" readonly="<%=session.getAttribute("user") == null%>" onclick="if(<%=session.getAttribute("user") != null%>){$('#rateForm<%=articleItem.getId()%>').submit()};"></rating>
-                                <input type="text" id="article_id" name="article_id" value="<%=articleItem.getId()%>" hidden="hidden">
-                                <input type="text" id="rate" name="rate" ng-model="rate<%=articleItem.getId()%>" hidden="hidden">
-                                <input type="hidden" name="forwardTo" value="${pageContext.request.servletPath}?content=articles" />
+
+                            <form id="rateForm<%=articleItem.getId()%>" action="RateArticleServlet" method="POST"
+                                  ng-submit="submit()">
+                                <rating ng-init="rate<%=articleItem.getId()%>=<%=Article.getArticleRate(articleItem.getId())%>"
+                                        ng-model="rate<%=articleItem.getId()%>"
+                                        max="5" readonly="<%=session.getAttribute("user") == null%>"
+                                        onclick="if(<%=session.getAttribute("user") != null%>){$('#rateForm<%=articleItem.getId()%>').submit()};"></rating>
+                                <input type="text" id="article_id" name="article_id" value="<%=articleItem.getId()%>"
+                                       hidden="hidden">
+                                <input type="text" id="rate" name="rate" ng-model="rate<%=articleItem.getId()%>"
+                                       hidden="hidden">
+                                <input type="hidden" name="forwardTo"
+                                       value="${pageContext.request.servletPath}?content=articles"/>
                             </form>
                             <small><%=articleItem.getCreated_by().getFirstName()%> <%=articleItem.getCreated_by().getLastName()%>
                                 | <%=articleItem.getCreated_at()%>
                             </small>
                             <% String content = articleItem.getContent();%>
                             <p><%=content.substring(0, Math.min(content.length(), 300))%> ...</p>
-
+                            <form id="DeleteFormArticle<%=articleItem.getId()%>" action="DeleteArticleServlet"
+                                  method="POST" ng-submit="submit()">
+                                <input type="text" id="article_idd" name="article_idd"
+                                       value="<%=articleItem.getId()%>" hidden="hidden">
                             <div class="btn-group">
                                 <% User currentUser = (User) (session.getAttribute("user"));
                                     if (currentUser != null && (currentUser.getRole().equals("Admin") || currentUser.getRole().equals("Manager"))) { %>
-                                <a class="btn btn-danger"
-                                   href="${pageContext.request.contextPath}/index.jsp?content=article&id=<%=articleItem.getId()%>">Delete</a>
+
+
+                                    <button class="btn btn-danger"
+                                       type="submit">Delete</button>
+
                                 <a class="btn btn-warning "
                                    href="${pageContext.request.contextPath}/index.jsp?content=editArticle&id=<%=articleItem.getId()%>">Edit</a>
                                 <%}%>
@@ -64,6 +77,7 @@
                                    href="${pageContext.request.contextPath}/index.jsp?content=article&id=<%=articleItem.getId()%>">Read
                                     Article..</a>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </li>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - jdb@localhost" uuid="85a21b67-1763-424e-b299-e43616f98d4a">
-    <database-info product="MySQL" version="5.6.24" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -18,11 +18,11 @@
     </table>
     <table name="sessions" schema="" catalog="jdb" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="client_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="employee_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="client_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="employee_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="sessionId" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
-      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
-      <column name="aborted_at" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="aborted_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="sessions_ibfk_1" columns="client_id" ref-table="users" ref-schema="" ref-catalog="jdb" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
       <foreign-key name="sessions_ibfk_2" columns="employee_id" ref-table="users" ref-schema="" ref-catalog="jdb" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>

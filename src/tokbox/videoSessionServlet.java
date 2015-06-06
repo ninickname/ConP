@@ -12,23 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 
-@WebServlet(name = "videoSessionServlet",urlPatterns={"/endVideoCall"})
+@WebServlet(name = "videoSessionServlet",urlPatterns={"/videoSessionServlet"})
 public class videoSessionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        // client - sessionId - isActive
-        for (SessionOb ses : SessionOb.getSessions())
-        {
-            if(ses.getSessionId().equals(request.getParameter("sessionId"))){
-                ses.setAborted_at(new Date());
-                break;
-                
-            }
-        }
-        response.sendRedirect("index.jsp");
+        SessionOb ses = SessionOb.getSessionById(Integer.parseInt(request.getParameter("id")));
+        ses.setAborted_at(new Date());
+        SessionOb.saveSession(ses);
 
 
-
+        response.sendRedirect("index.jsp?content=createFeedback&session_id="+ses.getId()+"");
     }
 }
