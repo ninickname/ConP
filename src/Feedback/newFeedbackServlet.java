@@ -17,11 +17,14 @@ public class newFeedbackServlet extends HttpServlet {
         User currentUser = (User)request.getSession().getAttribute("user");
 
         Feedback feedback = new Feedback();
+
         feedback.setTitle(request.getParameter("title"));
         feedback.setContent(request.getParameter("content"));
+
         SessionOb sob = SessionOb.getSessionById(Integer.parseInt(request.getParameter("session_id")));
 
         feedback.setSession(sob);
+
         if(sob.getClient().getId() != currentUser.getId())
             feedback.setWritten_on(sob.getClient());
         else
