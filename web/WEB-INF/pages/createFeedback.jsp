@@ -3,6 +3,7 @@
 <legend class="">Add new feedback:</legend>
 <div class="well">
     <form class="form-horizontal" action='newFeedbackServlet' method="POST" name="ArtForm">
+        <input type="text" id="session_id" name="session_id" value="${param.session_id}" hidden="hidden">
         <div class="form-group">
             <label class="form-label col-md-2" for="title">Title:</label>
 
@@ -24,7 +25,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-success" ng-disabled="RegForm.$invalid">
+                <button class="btn btn-success" type="submit">
                     Create
                 </button>
             </div>

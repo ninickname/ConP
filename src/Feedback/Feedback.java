@@ -15,7 +15,6 @@ import java.util.List;
 public class Feedback {
 
     private int id;
-    private int rate;
     private String title;
     private String content;
     private SessionOb sob;
@@ -26,7 +25,6 @@ public class Feedback {
     static ResultSet rs = null;
 
     public Feedback() {
-        this.rate = 0;
         this.title = null;
         this.content = null;
         this.sob = null;
@@ -34,8 +32,7 @@ public class Feedback {
         this.written_on = null;
     }
 
-    public Feedback(int rate, String title,String content,SessionOb sob, User created_by, User written_on) {
-        this.rate = rate;
+    public Feedback(String title,String content,SessionOb sob, User created_by, User written_on) {
         this.title = title;
         this.content = content;
         this.sob = sob;
@@ -55,15 +52,14 @@ public class Feedback {
         try {
             stmt = connection.createStatement();
 
-            String sqlQuery = "INSERT INTO feedbacks (rate,title,content,session_id,created_by,written_on) VALUES (?,?,?,?,?,?)";
+            String sqlQuery = "INSERT INTO feedbacks (title,content,session_id,created_by,written_on) VALUES (?,?,?,?,?)";
             psmtp = connection.prepareStatement(sqlQuery);
 
-            psmtp.setInt(1, fb.getRate());
-            psmtp.setString(2, fb.getTitle());
-            psmtp.setString(3, fb.getContent());
-            psmtp.setInt(4, Integer.parseInt(fb.getSob().getSessionId()));
-            psmtp.setInt(5, (int) fb.getCreated_by().getId());
-            psmtp.setInt(6, (int) fb.getWritten_on().getId());
+            psmtp.setString(1, fb.getTitle());
+            psmtp.setString(2, fb.getContent());
+            psmtp.setInt(3, (int) fb.getSob().getId());
+            psmtp.setInt(4, (int) fb.getCreated_by().getId());
+            psmtp.setInt(5, (int) fb.getWritten_on().getId());
 
             psmtp.executeUpdate();
         } catch (SQLException e) {
@@ -147,7 +143,7 @@ public class Feedback {
 
                 Feedback sob = new Feedback();
 
-                sob.setRate(rs.getInt("rate"));
+                sob.setId(Integer.parseInt(rs.getString("id")));
                 sob.setTitle(rs.getString("title"));
                 sob.setContent(rs.getString("content"));
                 sob.setSessionById(rs.getInt("session_id"));
@@ -207,7 +203,6 @@ public class Feedback {
 
                 Feedback sob = new Feedback();
 
-                sob.setRate(rs.getInt("rate"));
                 sob.setTitle(rs.getString("title"));
                 sob.setContent(rs.getString("content"));
                 sob.setSessionById(rs.getInt("session_id"));
@@ -265,53 +260,43 @@ public class Feedback {
         return feedback;
     }
 
-    public static Long avfRateFeedback(User bean) {
-
-        PreparedStatement psmtp = null;
-
-        Long ret = null;
-
-        connection = ConnectionManager.getConnection();
-
-        try {
-
-            String sqlQuery;
-
-            if(bean.getRole() =="User") {
-                sqlQuery = "SELECT  AVG(rate) FROM feedbacks WHERE session_id in  (SELECT id FROM sessions WHERE client_id = ?)" ; // tested and working
-            }
-            else if(bean.getRole() =="Employee"){
-                sqlQuery = "SELECT  AVG(rate) FROM feedbacks where session_id in (SELECT id FROM sessions WHERE employee_id = ?)";//tested and working
-            }else {
-                return null;
-            }
-            psmtp = connection.prepareStatement(sqlQuery);
-            psmtp.setLong(1, bean.getId());
-
-
-
-
-
-
-            rs = psmtp.executeQuery(sqlQuery);
-
-            ret = Long.valueOf(rs.toString());
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        return ret;
-    }
-
-
-
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
+//    public static Long avfRateFeedback(User bean) {
+//
+//        PreparedStatement psmtp = null;
+//
+//        Long ret = null;
+//
+//        connection = ConnectionManager.getConnection();
+//
+//        try {
+//
+//            String sqlQuery;
+//
+//            if(bean.getRole() =="User") {
+//                sqlQuery = "SELECT  AVG(rate) FROM feedbacks WHERE session_id in  (SELECT id FROM sessions WHERE client_id = ?)" ; // tested and working
+//            }
+//            else if(bean.getRole() =="Employee"){
+//                sqlQuery = "SELECT  AVG(rate) FROM feedbacks where session_id in (SELECT id FROM sessions WHERE employee_id = ?)";//tested and working
+//            }else {
+//                return null;
+//            }
+//            psmtp = connection.prepareStatement(sqlQuery);
+//            psmtp.setLong(1, bean.getId());
+//
+//
+//
+//
+//
+//
+//            rs = psmtp.executeQuery(sqlQuery);
+//
+//            ret = Long.valueOf(rs.toString());
+//        } catch (Exception ex) {
+//            System.out.println("Log In failed: An Exception has occurred! " + ex);
+//        }
+//
+//        return ret;
+//    }
 
     public String getTitle() {
         return title;

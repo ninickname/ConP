@@ -25,16 +25,16 @@
                                 <div class="btn-group">
                                     <% User currentUser = (User) (session.getAttribute("user"));
                                         if (currentUser != null && (currentUser.getRole().equals("Admin") || currentUser.getRole().equals("Manager"))) { %>
-
+                                    <form id="DeleteFormArticle<%=feedbackItem.getId()%>" action="DeleteFeedbackServlet"
+                                          method="POST" >
+                                        <input type="text" id="id" name="id"
+                                               value="<%=feedbackItem.getId()%>" hidden="hidden">
                                     <button class="btn btn-danger"
                                             type="submit">Delete</button>
+                                        </form>
 
-                                    <a class="btn btn-warning "
-                                       href="${pageContext.request.contextPath}/index.jsp?content=editArticle&id=<%=feedbackItem.getId()%>">Edit</a>
                                     <%}%>
-                                    <a class="btn btn-success"
-                                       href="${pageContext.request.contextPath}/index.jsp?content=article&id=<%=feedbackItem.getId()%>">Read
-                                        Article..</a>
+
                                 </div>
                             </form>
                         </div>
