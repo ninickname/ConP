@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Introduction Row -->
-<img src="/img/header.png" class="img-responsive img-rounded"/>
+<img src="img/header.png" class="img-responsive img-rounded"/>
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">About Us
@@ -15,37 +15,37 @@
         <h2 class="page-header">Our Team</h2>
     </div>
     <div class="col-lg-4 col-sm-6 text-center">
-        <img class="img-circle img-responsive img-center" src="/img/andrey.jpg" alt="">
+        <img class="img-circle img-responsive img-center" src="img/andrey.jpg" alt="">
         <h3>Andrey Pospelov
             <small>ConP CEO</small>
         </h3>
     </div>
     <div class="col-lg-4 col-sm-6 text-center">
-        <img class="img-circle img-responsive img-center" src="/img/vova.jpg" alt="">
+        <img class="img-circle img-responsive img-center" src="img/vova.jpg" alt="">
         <h3>Vova Feldstein
             <small>Tokbox master</small>
         </h3>
     </div>
     <div class="col-lg-4 col-sm-6 text-center">
-        <img class="img-circle img-responsive img-center" src="/img/maxim.jpg" alt="">
+        <img class="img-circle img-responsive img-center" src="img/maxim.jpg" alt="">
         <h3>Maxim Dunavicher
             <small>Design master</small>
         </h3>
     </div>
     <div class="col-lg-4 col-sm-6 text-center">
-        <img class="img-circle img-responsive img-center" src="/img/nick.jpg" alt="">
+        <img class="img-circle img-responsive img-center" src="img/nick.jpg" alt="">
         <h3>Nick Yashaev
             <small>Editor master</small>
         </h3>
     </div>
     <div class="col-lg-4 col-sm-6 text-center">
-        <img class="img-circle img-responsive img-center" src="/img/yuval.jpg" alt="">
+        <img class="img-circle img-responsive img-center" src="img/yuval.jpg" alt="">
         <h3>Yuval Hen
             <small>Client service</small>
         </h3>
     </div>
     <div class="col-lg-4 col-sm-6 text-center">
-        <img class="img-circle img-responsive img-center" src="/img/vital.jpg" alt="">
+        <img class="img-circle img-responsive img-center" src="img/vital.jpg" alt="">
         <h3>Vital Yuchter
             <small>QA master</small>
         </h3>

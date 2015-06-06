@@ -99,7 +99,7 @@ public class SessionOb {
             psmtp = connection.prepareStatement(sqlQuery);
 
 
-            if (sob.getEmployee()!= null) {
+            if (sob.getClient()!= null) {
                 psmtp.setInt(1, (int) sob.getClient().getId());
             }
             else {

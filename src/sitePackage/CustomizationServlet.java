@@ -18,6 +18,9 @@ import java.util.Map;
 public class CustomizationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        if (!((User)(request.getSession().getAttribute("user"))).getRole().equals("Manager")){
+            response.sendRedirect("401");
+        }
         String company_name = request.getParameter("company_name");
         LinkedHashMap<String, String[]> requesParameterstDict =  new LinkedHashMap<>( request.getParameterMap() ) ;
         String pathToJson = this.getServletContext().getRealPath("/data/conf_main.json");

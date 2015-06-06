@@ -12,10 +12,11 @@
         <div class="col-md-12">
             <button onclick="endSession()" class="btn btn-warning" id="end_session_btn">End call</button>
             <button onclick="startSession()" class="btn btn-success" id="start_session_btn">Turn on video!!!</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackleModal" data-whatever="@getbootstrap">Feedback</button>
+           <%--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackleModal" data-whatever="@getbootstrap">Feedback</button>--%>
         </div>
         <small class="text-danger">Make sure you allowed access your video camera from the browser</small>
 </div>
+
     <div class="modal fade" id="feedbackleModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -85,10 +86,7 @@
             $("#start_session_btn").addClass("loading");
 
             videoSession.unpublish(publisher);
-            $.post("endVideoCall",{"sessionId":sessionId},function(){
-
-
-            })
+            $.post("endVideoCall",{"sessionId":sessionId },function(){} )
 
 
         }

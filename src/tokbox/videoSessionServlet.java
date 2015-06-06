@@ -26,6 +26,8 @@ public class videoSessionServlet extends HttpServlet {
                 
             }
         }
+        response.sendRedirect("index.jsp");
+
 
 
     }

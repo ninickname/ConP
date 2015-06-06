@@ -9,19 +9,19 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="item">
-            <div class="fill" style="background-image:url('/pictures/slide1.jpg')"></div>
+            <div class="fill" style="background-image:url('img/slide1.jpg')"></div>
             <div class="carousel-caption">
                 <h2>Caption 1</h2>
             </div>
         </div>
         <div class="item">
-            <div class="fill" style="background-image:url('/pictures/slide2.jpg');"></div>
+            <div class="fill" style="background-image:url('img/slide2.jpg');"></div>
             <div class="carousel-caption">
                 <h2>Caption 2</h2>
             </div>
         </div>
         <div class="item active">
-            <div class="fill" style="background-image:url('/pictures/slide3.jpg');"></div>
+            <div class="fill" style="background-image:url('img/slide3.jpg');"></div>
             <div class="carousel-caption">
                 <h2>Caption 3</h2>
             </div>
@@ -41,47 +41,8 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Welcome to ConP - Consult with the professional
+                Welcome to ConP - Consult, with the professionals
             </h1>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><span class="glyphicon glyphicon-user"></span> Free client registration</h4>
-                </div>
-                <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla
-                        aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus
-                        eveniet incidunt dicta nostrum quod?</p>
-                    <a href="${pageContext.request.contextPath}/index.jsp?content=client/register" class="btn btn-success">Register >></a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><span class="glyphicon glyphicon-briefcase"></span> Best software for your business</h4>
-                </div>
-                <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla
-                        aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus
-                        eveniet incidunt dicta nostrum quod?</p>
-                    <a href="${pageContext.request.contextPath}/index.jsp?content=company/register" class="btn btn-success">Register >></a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><span class="glyphicon glyphicon-book"></span> Easy to use</h4>
-                </div>
-                <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla
-                        aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus
-                        eveniet incidunt dicta nostrum quod?</p>
-                    <a href="#" class="btn btn-info">Guide</a>
-                </div>
-            </div>
         </div>
     </div>
     <!-- /.row -->
@@ -92,22 +53,21 @@
             <h2 class="page-header">Modern Business Features</h2>
         </div>
         <div class="col-md-6">
-            <p>The Modern Business template by Start Bootstrap includes:</p>
+            <p>Our company offers:</p>
             <ul>
-                <li><strong>Bootstrap v3.2.0</strong>
-                </li>
-                <li>jQuery v1.11.0</li>
-                <li>Font Awesome v4.1.0</li>
-                <li>Working PHP contact form with validation</li>
-                <li>Unstyled page elements for easy customization</li>
-                <li>17 HTML pages</li>
+                <li><strong>Free client registration</strong>                </li>
+                <li>Best software for your business</li>
+                <li>Easy to use</li>
+                <li>Working all platforms</li>
+                <li>Soon to be available for android in the Play store</li>
+                <li>and of course IOS , Windows Mobile and Symbian </li>
             </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id
-                reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia
-                dolorum ducimus unde.</p>
+
+            <p>Enjoy the service of the professional , a clean video call , use the platform you like and the place you like to talk from ,
+                all you need to do is just register and make the call</p>
         </div>
         <div class="col-md-6">
-            <img class="img-responsive" src="http://placehold.it/700x450" alt="">
+            <img class="img-responsive" src="img/logo.png" alt="">
         </div>
     </div>
     <!-- /.row -->

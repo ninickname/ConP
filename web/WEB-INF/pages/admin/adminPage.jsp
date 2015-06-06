@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="tokbox.*,sitePackage.UserDAO,tokbox.SessionOb" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.TimeZone" %>
-<script src="/js/Chart.js"></script>
+<script src="js/Chart.js"></script>
 <div class="row">
     <legend>Global Statistics</legend>
     <div class="col-md-4">

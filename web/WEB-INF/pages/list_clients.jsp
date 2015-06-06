@@ -1,15 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="sitePackage.UserDAO" %>
 <%@ page import="sitePackage.User" %>
 <%@ page import="java.util.List" %>
-<legend class="">List of Clients who unregistered:</legend>
+<legend class="">List of Clients who unregistered, click on id to approve his as user :</legend>
 <div class="well">
     <div class="form-horizontal">
         <div class="form-group">
             <div class="col-lg-4">
                 <% List<User> UsersList = UserDAO.ListClients();
-                    for(int i=0 ; i< UsersList.size();i++){%>
-                    <% User user = new User();%>
-                    <% user = UsersList.get(i);%>
+                    for(User user : UsersList){%>
 
                 <div class="controls">
                     <form class="form-horizontal" action='ApproveUserServlet' method="POST" name="ListForm" >

@@ -15,13 +15,11 @@ import java.sql.Statement;
 public class ApproveUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-
         User user = new User();
         user.setId(new Long(request.getParameter("text")));
-        boolean check=UserDAO.Validclient(user);
-        if (check)
-             response.sendRedirect("index.jsp");
+        boolean check=UserDAO.makeValid(user);
+        response.sendRedirect("index.jsp?content=list_clients");
+
 
     }
 

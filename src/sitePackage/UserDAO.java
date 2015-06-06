@@ -1,6 +1,7 @@
 package sitePackage;
 
 
+import javax.servlet.ServletException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class UserDAO {
     static Connection connection = null;
     static ResultSet rs = null;
 
-    public static User login(User bean) {
+    public static User login(User bean) throws ServletException {
 
         //preparing some objects for connection
         Statement stmt = null;
@@ -32,7 +33,7 @@ public class UserDAO {
 
             // if user does not exist set the isValid variable to false
             if (!more) {
-                System.out.println("Sorry, you are not a registered user! Please sign up first");
+                //System.out.println("Sorry, you are not a registered user! Please sign up first");
                 bean.setValid(false);
             }
 
@@ -59,7 +60,9 @@ public class UserDAO {
                 }
             }
         } catch (Exception ex) {
+
             System.out.println("Log In failed: An Exception has occurred! " + ex);
+            throw new ServletException();
         }
 
 
@@ -107,64 +110,31 @@ public class UserDAO {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         }
 
-        //some exception handling
-        finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                }
-                rs = null;
-            }
 
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                }
-                stmt = null;
-            }
-
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (Exception e) {
-                }
-
-                connection = null;
-            }
-        }
 
         return users;
 
     }
-    public static boolean Validclient(User user) {
+    public static boolean makeValid(User user) {
 
         //preparing some objects for connection
         Statement stmt = null;
         PreparedStatement psmtp = null;
         //String username = bean.getUserName();
 
-        String searchQuery =
-                 "select * from users where id='" + user.getId() + "'";
         try {
             //connect to DB
             connection = ConnectionManager.getConnection();
             stmt = connection.createStatement();
-            rs = stmt.executeQuery(searchQuery);
+            String sqlQuery = "UPDATE `users` SET role='User' WHERE id ='" + user.getId() + "' ";
+
             boolean more = true;
 
-            // if user does not exist set the isValid variable to false
-
-
-            //if user exists set the isValid variable to true
-            while (more) {
-                String sqlQuery = "UPDATE `users` SET role='User' WHERE id ='" + user.getId() + "' ";
+            if (more) {
                 System.out.println(sqlQuery);
                 psmtp = connection.prepareStatement(sqlQuery);
                 psmtp.executeUpdate(sqlQuery);
                 user.setValid(true);
-                more = rs.next();
             }
 
         } catch (Exception ex) {
@@ -190,7 +160,7 @@ public class UserDAO {
         String sqlQuery = "select * from users where user_name='" + user.getUserName() + "'";
 
         //connect to DB
-        connection = getConnection();
+        connection = ConnectionManager.getConnection();
         try {
             stmt = connection.createStatement();
 
@@ -251,7 +221,7 @@ public class UserDAO {
 
         try {
             //connect to DB
-            connection = getConnection();
+            connection = ConnectionManager.getConnection();
             stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
@@ -284,14 +254,14 @@ public class UserDAO {
 
         try {
             //connect to DB
-            connection = getConnection();
+            connection = ConnectionManager.getConnection();
             stmt = connection.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
 
             // if user does not exist set the isValid variable to false
             if (!more) {
-                System.out.println("Sorry, you are not a registered user! Please sign up first");
+                //System.out.println("Sorry, you are not a registered user! Please sign up first");
             }
 
             //if user exists set the isValid variable to true
@@ -331,7 +301,7 @@ public class UserDAO {
 
 
         //connect to DB
-        connection = getConnection();
+        connection = ConnectionManager.getConnection();
         try {
 
             System.out.println("before querry");
@@ -368,7 +338,7 @@ public class UserDAO {
         ArrayList<User> users = new ArrayList<User>();
         Statement stmt = null;
 
-        connection = getConnection();
+        connection = ConnectionManager.getConnection();
 
         try {
 
@@ -403,7 +373,7 @@ public class UserDAO {
         ArrayList<User> users = new ArrayList<User>();
         Statement stmt = null;
 
-        connection = getConnection();
+        connection = ConnectionManager.getConnection();
 
         try {
 
@@ -438,7 +408,7 @@ public class UserDAO {
         ArrayList<User> users = new ArrayList<User>();
         Statement stmt = null;
 
-        connection = getConnection();
+        connection = ConnectionManager.getConnection();
 
         try {
 
@@ -473,7 +443,7 @@ public class UserDAO {
         ArrayList<User> users = new ArrayList<User>();
         Statement stmt = null;
 
-        connection = getConnection();
+        connection = ConnectionManager.getConnection();
 
         try {
 
@@ -508,7 +478,7 @@ public class UserDAO {
         ArrayList<User> users = new ArrayList<User>();
         Statement stmt = null;
 
-        connection = getConnection();
+        connection = ConnectionManager.getConnection();
 
         try {
 
@@ -543,7 +513,7 @@ public class UserDAO {
         ArrayList<User> users = new ArrayList<User>();
         Statement stmt = null;
 
-        connection = getConnection();
+        connection = ConnectionManager.getConnection();
 
         try {
 

@@ -16,8 +16,12 @@ public class LoginServlet extends HttpServlet {
             User user = new User();
             user.setUserName(request.getParameter("user_name"));
             user.setPassword(request.getParameter("password"));
-
-            user = UserDAO.login(user);
+            try {
+                user = UserDAO.login(user);
+            }
+            catch (ServletException ex ){
+                response.sendRedirect("/AdminServlet");
+            }
 
             if (user.isValid()) {
                 HttpSession session = request.getSession(true);
